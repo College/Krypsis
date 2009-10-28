@@ -1,0 +1,7 @@
+package org.krypsis.blackberry;
+
+APP_NAME#0=0;
+APP_NET_HOST#0=1;
+APP_NET_PORT#0=2;
+APP_NET_PATH#0=3;
+APP_NET_PROTOCOL#0=4;

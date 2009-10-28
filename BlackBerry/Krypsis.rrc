@@ -1,0 +1,5 @@
+APP_NAME#0="Krypsis";
+APP_NET_HOST#0="192.168.1.51";
+APP_NET_PATH#0="/demo/simple-bb.html";
+APP_NET_PORT#0="3000";
+APP_NET_PROTOCOL#0="http";
