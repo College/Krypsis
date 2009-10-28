@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <!-- First of all we need the Krypsis lib for Connector, Error and Ajax support. -->
+    <script type="text/javascript" src="../../javascripts/krypsis/krypsis.js">&nbsp;</script>
+
+    <script type="text/javascript" src="../../javascripts/krypsis/modules/photo.js">&nbsp;</script>
+
+    <!-- If you intend to test you web app first in browser, then include the mocking library... -->
+    <script type="text/javascript" src="../../javascripts/krypsis/mock/mock.js">&nbsp;</script>
+
+    <!-- To get notified about the action krypsis is doing, include the logger or provide your own adapter -->
+    <script type="text/javascript" src="../../javascripts/krypsis/mock/logger.js">&nbsp;</script>
+
+    <!-- And the module you are going to mock. -->
+    <script type="text/javascript" src="../js/photo.js">&nbsp;</script>
+
+  </head>
+
+  <!--
+  These callbacks are very important as Krypsis needs to know when a page
+  loads and when the user leaves the page. Depends on this all previous
+  listeners will be destroyed.
+  -->
+  <body onload="Krypsis.load();" onunload="Krypsis.unload();">
+
+    <ul>
+      <li>
+        <p>
+          Take a photo from camera and upload it to the remote server
+        </p>
+        <div>
+          <a href="javascript:Krypsis.Demo.Photo.takeAndUpload('KrypsisTakeAndUploadPhoto');" > Take and upload camera photo </a>
+        </div>
+        <div id="KrypsisTakeAndUploadPhoto"> </div>
+        <div>
+          Width : <input id="width" type="text" value="240"/>
+        </div>
+        <div>
+          Height: <input id="height" type="text" value="200"/>
+        </div>
+        <img id="image" style="display: block;" />
+      </li>
+    </ul>
+
+    <a href="../index.html">Back</a>
+  </body>
+</html>

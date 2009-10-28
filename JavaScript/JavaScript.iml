@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" type="RUBY_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="RailsFacetType" name="Ruby on Rails">
+      <configuration>
+        <RAILS_FACET_CONFIG_ID NAME="SHOULD_USE_RSPEC_PLUGIN" VALUE="false" />
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_SUPPORT_REMOVED" VALUE="false" />
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_TESTS_SOURCES_PATCHED" VALUE="true" />
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_APPLICATION_ROOT" VALUE="$MODULE_DIR$" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="jdk" jdkName="Ruby SDK 1.8.7" jdkType="RUBY_SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="[gem] actionmailer (v2.2.2, /opt/local/lib/ruby/gems/1.8/gems/actionmailer-2.2.2)" level="application" />
+    <orderEntry type="library" name="[gem] actionpack (v2.2.2, /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2)" level="application" />
+    <orderEntry type="library" name="[gem] activerecord (v2.2.2, /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2)" level="application" />
+    <orderEntry type="library" name="[gem] activeresource (v2.2.2, /opt/local/lib/ruby/gems/1.8/gems/activeresource-2.2.2)" level="application" />
+    <orderEntry type="library" name="[gem] activesupport (v2.2.2, /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2)" level="application" />
+    <orderEntry type="library" name="[gem] cgi_multipart_eof_fix (v2.5.0, /opt/local/lib/ruby/gems/1.8/gems/cgi_multipart_eof_fix-2.5.0)" level="application" />
+    <orderEntry type="library" name="[gem] daemons (v1.0.10, /opt/local/lib/ruby/gems/1.8/gems/daemons-1.0.10)" level="application" />
+    <orderEntry type="library" name="[gem] fastthread (v1.0.1, /opt/local/lib/ruby/gems/1.8/gems/fastthread-1.0.1)" level="application" />
+    <orderEntry type="library" name="[gem] gem_plugin (v0.2.3, /opt/local/lib/ruby/gems/1.8/gems/gem_plugin-0.2.3)" level="application" />
+    <orderEntry type="library" name="[gem] highline (v1.5.0, /opt/local/lib/ruby/gems/1.8/gems/highline-1.5.0)" level="application" />
+    <orderEntry type="library" name="[gem] linecache (v0.43, /opt/local/lib/ruby/gems/1.8/gems/linecache-0.43)" level="application" />
+    <orderEntry type="library" name="[gem] mongrel (v1.1.5, /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5)" level="application" />
+    <orderEntry type="library" name="[gem] rails (v2.2.2, /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2)" level="application" />
+    <orderEntry type="library" name="[gem] ruby-debug-base (v0.10.3, /opt/local/lib/ruby/gems/1.8/gems/ruby-debug-base-0.10.3)" level="application" />
+    <orderEntry type="library" name="[gem] sqlite3-ruby (v1.2.4, /opt/local/lib/ruby/gems/1.8/gems/sqlite3-ruby-1.2.4)" level="application" />
+    <orderEntry type="library" name="[gem] actionmailer (v2.3.2, /opt/local/lib/ruby/gems/1.8/gems/actionmailer-2.3.2)" level="application" />
+    <orderEntry type="library" name="[gem] actionpack (v2.3.2, /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2)" level="application" />
+    <orderEntry type="library" name="[gem] activerecord (v2.3.2, /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2)" level="application" />
+    <orderEntry type="library" name="[gem] activeresource (v2.3.2, /opt/local/lib/ruby/gems/1.8/gems/activeresource-2.3.2)" level="application" />
+    <orderEntry type="library" name="[gem] activesupport (v2.3.2, /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2)" level="application" />
+    <orderEntry type="library" name="[gem] rails (v2.3.2, /opt/local/lib/ruby/gems/1.8/gems/rails-2.3.2)" level="application" />
+    <orderEntry type="library" name="[gem] andre-geokit (v1.2.1, /opt/local/lib/ruby/gems/1.8/gems/andre-geokit-1.2.1)" level="application" />
+    <orderEntry type="library" name="[gem] capistrano (v2.5.4, /opt/local/lib/ruby/gems/1.8/gems/capistrano-2.5.4)" level="application" />
+    <orderEntry type="library" name="[gem] columnize (v0.3.0, /opt/local/lib/ruby/gems/1.8/gems/columnize-0.3.0)" level="application" />
+    <orderEntry type="library" name="[gem] GeoRuby (v1.3.3, /opt/local/lib/ruby/gems/1.8/gems/GeoRuby-1.3.3)" level="application" />
+    <orderEntry type="library" name="[gem] hoe (v1.8.3, /opt/local/lib/ruby/gems/1.8/gems/hoe-1.8.3)" level="application" />
+    <orderEntry type="library" name="[gem] mocha (v0.9.5, /opt/local/lib/ruby/gems/1.8/gems/mocha-0.9.5)" level="application" />
+    <orderEntry type="library" name="[gem] mongrel_cluster (v1.0.5, /opt/local/lib/ruby/gems/1.8/gems/mongrel_cluster-1.0.5)" level="application" />
+    <orderEntry type="library" name="[gem] net-scp (v1.0.2, /opt/local/lib/ruby/gems/1.8/gems/net-scp-1.0.2)" level="application" />
+    <orderEntry type="library" name="[gem] net-sftp (v2.0.2, /opt/local/lib/ruby/gems/1.8/gems/net-sftp-2.0.2)" level="application" />
+    <orderEntry type="library" name="[gem] net-ssh (v2.0.10, /opt/local/lib/ruby/gems/1.8/gems/net-ssh-2.0.10)" level="application" />
+    <orderEntry type="library" name="[gem] net-ssh-gateway (v1.0.1, /opt/local/lib/ruby/gems/1.8/gems/net-ssh-gateway-1.0.1)" level="application" />
+    <orderEntry type="library" name="[gem] postgres (v0.7.9.2008.01.28, /opt/local/lib/ruby/gems/1.8/gems/postgres-0.7.9.2008.01.28)" level="application" />
+    <orderEntry type="library" name="[gem] postgres-pr (v0.5.1, /opt/local/lib/ruby/gems/1.8/gems/postgres-pr-0.5.1)" level="application" />
+    <orderEntry type="library" name="[gem] rmagick (v2.9.1, /opt/local/lib/ruby/gems/1.8/gems/rmagick-2.9.1)" level="application" />
+    <orderEntry type="library" name="[gem] rmail (v1.0.0, /opt/local/lib/ruby/gems/1.8/gems/rmail-1.0.0)" level="application" />
+    <orderEntry type="library" name="[gem] rspec (v1.1.12, /opt/local/lib/ruby/gems/1.8/gems/rspec-1.1.12)" level="application" />
+    <orderEntry type="library" name="[gem] ruby-debug (v0.10.3, /opt/local/lib/ruby/gems/1.8/gems/ruby-debug-0.10.3)" level="application" />
+    <orderEntry type="library" name="[gem] ruby-debug-ide (v0.4.4, /opt/local/lib/ruby/gems/1.8/gems/ruby-debug-ide-0.4.4)" level="application" />
+    <orderEntry type="library" name="[gem] rubyforge (v1.0.2, /opt/local/lib/ruby/gems/1.8/gems/rubyforge-1.0.2)" level="application" />
+    <orderEntry type="library" name="[gem] rubygems-update (v1.3.1, /opt/local/lib/ruby/gems/1.8/gems/rubygems-update-1.3.1)" level="application" />
+    <orderEntry type="library" name="[gem] syntax (v1.0.0, /opt/local/lib/ruby/gems/1.8/gems/syntax-1.0.0)" level="application" />
+    <orderEntry type="library" name="[gem] rake (v0.8.4, /opt/local/lib/ruby/gems/1.8/gems/rake-0.8.4)" level="application" />
+    <orderEntry type="library" name="[gem] postgres-pr (v0.6.1, /opt/local/lib/ruby/gems/1.8/gems/postgres-pr-0.6.1)" level="application" />
+    <orderEntry type="library" name="[gem] rake (v0.8.3, null)" level="application" />
+    <orderEntry type="library" name="[gem] ruby-pg (v0.7.9.2008.01.28, null)" level="application" />
+  </component>
+  <component name="RModuleSettingsStorage">
+    <RMODULE_SETTINGS_STORAGE_ID NAME="NUMBER" VALUE="0" />
+  </component>
+  <component name="RailsViewFoldersManager">
+    <USER_URLS url="file://$MODULE_DIR$/config" />
+    file:///Users/hellboy/Projekte/Krypsis/javascript/config
+    <USER_URLS url="file://$MODULE_DIR$/vendor/plugins" />
+    file:///Users/hellboy/Projekte/Krypsis/javascript/vendor/plugins
+    <USER_URLS url="file://$MODULE_DIR$/public/javascripts" />
+    file:///Users/hellboy/Projekte/Krypsis/javascript/public/javascripts
+    <USER_URLS url="file://$MODULE_DIR$/lib" />
+    file:///Users/hellboy/Projekte/Krypsis/javascript/lib
+    <USER_URLS url="file://$MODULE_DIR$/public/stylesheets" />
+    file:///Users/hellboy/Projekte/Krypsis/javascript/public/stylesheets
+  </component>
+</module>
+

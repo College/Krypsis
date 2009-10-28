@@ -1,0 +1,44 @@
+<!--
+  ~ Krypsis - Write web applications based on proved technologies
+  ~ like HTML, JavaScript, CSS... and access functionality of your
+  ~ smartphone in a platform independent way.
+  ~
+  ~ Copyright (C) 2008 - 2009 krypsis.org (have.a.go@krypsis.org)
+  ~
+  ~ This program is free software; you can redistribute it and/or
+  ~ modify it under the terms of the GNU General Public License
+  ~ as published by the Free Software Foundation; either version 2
+  ~ of the License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program; if not, write to the Free Software
+  ~ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  -->
+
+<html>
+  <head>
+    <title>Krypsis example - Google static maps fits to the screen.</title>
+    <script type="text/javascript" src="../../javascripts/krypsis/krypsis.js" ></script>
+    <script type="text/javascript" src="../../javascripts/krypsis/modules/screen.js" ></script>
+    <script type="text/javascript" src="../../javascripts/krypsis/modules/location.js" ></script>
+
+    <script type="text/javascript" src="../../javascripts/krypsis/mock/mock.js" ></script>
+    <script type="text/javascript" src="../../javascripts/krypsis/mock/logger.js" ></script>
+
+    <script type="text/javascript" src="../javascript/staticmaps.js"> </script>
+  </head>
+
+  <body onunload="Krypsis.unload();">
+    <img src="http://i4.social.microsoft.com/Image.avatr?size=Small&user=alexander.w&id=00000000-0000-0000-0000-000000000000" id="map" alt="will be replaced by a real image soon." />
+    <ul>
+      <li><a href="javascript:Krypsis.Demo.Staticmaps.loadStaticMap('map');">Load static map (Now)</a></li>
+      <li><a href="javascript:Krypsis.Demo.Staticmaps.enableScreenOrientation('map');">Enable / Disable screen orienation listener</a></li>
+      <li><a href="../index.html">Back</a></li>
+    </ul>
+  </body>
+</html>

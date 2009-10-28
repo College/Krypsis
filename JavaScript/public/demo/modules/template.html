@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <!-- First of all we need the Krypsis lib for Connector, Error and Ajax support. -->
+    <script type="text/javascript" src="../../javascripts/krypsis/krypsis.js">&nbsp;</script>
+
+    <!-- If you intend to test you web app first in browser, then include the mocking library... -->
+    <script type="text/javascript" src="../../javascripts/krypsis/mock/mock.js">&nbsp;</script>
+
+    <!-- To get notified about the action krypsis is doing, include the logger or provide your own adapter -->
+    <script type="text/javascript" src="../../javascripts/krypsis/mock/logger.js">&nbsp;</script>
+
+    <!--
+      If you run your app in production mode you may want to include a minimized
+      version of Krypsis and it's modules. Then uncomment this line:
+      <script type="text/javascript" src="../../javascripts/krypsis/min/krypsis-all.min.js" >&nbsp;</script>
+      This script contains the Krypsis lib and all available modules.
+    -->
+    <script type="text/javascript">
+      Krypsis.addLoadEvent(function() {
+        Krypsis.Log.info("Mocked version of Krypsis is loaded and is ready to be used...");
+      });
+    </script>
+  </head>
+
+  <!--
+  These callbacks are very important as Krypsis needs to know when a page
+  loads and when the user leaves the page. Depends on this all previous
+  listeners will be destroyed.
+  -->
+  <body onload="Krypsis.load();" onunload="Krypsis.unload();">
+    <!-- Place your HTML content here -->
+
+    <a href="../index.html">Back</a>
+  </body>
+</html>

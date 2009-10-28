@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <!-- iPhone view port -->
+    <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    
+    <!-- First of all we need the Krypsis lib for Connector, Error and Ajax support. -->
+    <script type="text/javascript" src="../../javascripts/krypsis/krypsis.js">&nbsp;</script>
+
+    <!-- If you intend to test you web app first in browser, then include the mocking library... -->
+    <script type="text/javascript" src="../../javascripts/krypsis/mock/mock.js">&nbsp;</script>
+
+    <!-- To get notified about the action krypsis is doing, include the logger or provide your own adapter -->
+    <script type="text/javascript" src="../../javascripts/krypsis/mock/logger.js">&nbsp;</script>
+
+    <!-- Include the base functions for this demo -->
+    <script type="text/javascript" src="../js/base.js">&nbsp;</script>
+  </head>
+
+  <!--
+  These callbacks are very important as Krypsis needs to know when a page
+  loads and when the user leaves the page. Depends on this all previous
+  listeners will be destroyed.
+  -->
+  <body onload="Krypsis.load();" onunload="Krypsis.unload();">
+
+    <ul>
+      <li>
+        <p>
+          This function loads the meta data of the device.
+        </p>
+        <div>
+          <a href="javascript:Krypsis.Demo.Base.getMetaData('BaseGetMetaData')">Get Metadata</a>
+        </div>
+        <div id="BaseGetMetaData"> </div>
+      </li>
+    </ul>
+
+    <a href="../index.html">Back</a>
+  </body>
+</html>

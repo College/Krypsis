@@ -1,0 +1,14 @@
+-- JS min file generation use juicer: http://cjohansen.no/en/ruby/juicer_a_css_and_javascript_packaging_tool
+juicer merge -i app.js will produce app.min.js
+
+-- Google Maps API key --
+http://demo.krypsis.org/
+
+KEY:
+ABQIAAAAQsy1m0NpT7Z_yI_m5IExvBRngN1a2Hlc2HCph_9A1fdZ0WiTwRT7f6lE9LXkTwS8f8xst5stntdIwA
+
+JavaScript Maps API Example:
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true_or_false&amp;key=ABQIAAAAQsy1m0NpT7Z_yI_m5IExvBRngN1a2Hlc2HCph_9A1fdZ0WiTwRT7f6lE9LXkTwS8f8xst5stntdIwA" type="text/javascript"></script>
+
+HTTP Service example:
+http://maps.google.com/maps/geo?q=1600+Amphitheatre+Parkway,+Mountain+View,+CA&output=json&oe=utf8&sensor=true_or_false&key=ABQIAAAAQsy1m0NpT7Z_yI_m5IExvBRngN1a2Hlc2HCph_9A1fdZ0WiTwRT7f6lE9LXkTwS8f8xst5stntdIwA

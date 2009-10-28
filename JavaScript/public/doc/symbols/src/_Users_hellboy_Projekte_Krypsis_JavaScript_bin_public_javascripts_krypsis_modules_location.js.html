@@ -1,0 +1,198 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * Krypsis - Write web applications based on proved technologies
+<span class='line'>  3</span>  * like HTML, JavaScript, CSS... and access functionality of your
+<span class='line'>  4</span>  * smartphone in a platform independent way.
+<span class='line'>  5</span>  *
+<span class='line'>  6</span>  * Copyright (C) 2008 - 2009 krypsis.org (have.a.go@krypsis.org)
+<span class='line'>  7</span>  *
+<span class='line'>  8</span>  * This program is free software; you can redistribute it and/or
+<span class='line'>  9</span>  * modify it under the terms of the GNU General Public License
+<span class='line'> 10</span>  * as published by the Free Software Foundation; either version 2
+<span class='line'> 11</span>  * of the License, or (at your option) any later version.
+<span class='line'> 12</span>  *
+<span class='line'> 13</span>  * This program is distributed in the hope that it will be useful,
+<span class='line'> 14</span>  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class='line'> 15</span>  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class='line'> 16</span>  * GNU General Public License for more details.
+<span class='line'> 17</span>  *
+<span class='line'> 18</span>  * You should have received a copy of the GNU General Public License
+<span class='line'> 19</span>  * along with this program; if not, write to the Free Software
+<span class='line'> 20</span>  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+<span class='line'> 21</span>  */</span><span class="WHIT">
+<span class='line'> 22</span> 
+<span class='line'> 23</span> </span><span class="COMM">/**
+<span class='line'> 24</span>  * &lt;p>
+<span class='line'> 25</span>  * This module defines some functions to retrieve the current location.
+<span class='line'> 26</span>  * Of cource this is only possible if the device provides GPS data. 
+<span class='line'> 27</span>  * &lt;/p>
+<span class='line'> 28</span>  *
+<span class='line'> 29</span>  * @static
+<span class='line'> 30</span>  * @class The location module to get the users gps location.
+<span class='line'> 31</span>  * @since 0.1
+<span class='line'> 32</span>  * @depends ../krypsis.js
+<span class='line'> 33</span>  */</span><span class="WHIT">
+<span class='line'> 34</span> </span><span class="NAME">Krypsis.Device.Location</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 35</span> 
+<span class='line'> 36</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 37</span>    * @private
+<span class='line'> 38</span>    */</span><span class="WHIT">
+<span class='line'> 39</span> </span><span class="WHIT">  </span><span class="NAME">context</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'location'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 40</span> 
+<span class='line'> 41</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 42</span>    * &lt;p>
+<span class='line'> 43</span>    * Retrieves the last known gps location.
+<span class='line'> 44</span>    * Notice: The timeout is set to 60 seconds here. If you need
+<span class='line'> 45</span>    * more or less time then provide the "timeout" parameter.
+<span class='line'> 46</span>    * &lt;/p>
+<span class='line'> 47</span>    *
+<span class='line'> 48</span>    * &lt;p>
+<span class='line'> 49</span>    * The following parameters are supported:
+<span class='line'> 50</span>    * &lt;ul>
+<span class='line'> 51</span>    * &lt;li>&lt;strong>accuracy&lt;/strong>: The minimal accuracy in meters before location shall be determined&lt;/li>
+<span class='line'> 52</span>    * &lt;/ul>
+<span class='line'> 53</span>    * &lt;/p>
+<span class='line'> 54</span>    *
+<span class='line'> 55</span>    * &lt;p>
+<span class='line'> 56</span>    * The onSuccess callback will provide an object with the following properties:
+<span class='line'> 57</span>    *
+<span class='line'> 58</span>    * &lt;ul>
+<span class='line'> 59</span>    * &lt;li>&lt;strong>latitude&lt;/strong>&lt;/li>
+<span class='line'> 60</span>    * &lt;li>&lt;strong>longitude&lt;/strong>&lt;/li>
+<span class='line'> 61</span>    * &lt;li>&lt;strong>accuracy&lt;/strong>&lt;/li>
+<span class='line'> 62</span>    * &lt;li>&lt;strong>altitude&lt;/strong>&lt;/li>
+<span class='line'> 63</span>    * &lt;li>&lt;strong>timestamp&lt;/strong>&lt;/li>
+<span class='line'> 64</span>    * &lt;/ul>
+<span class='line'> 65</span>    * &lt;/p>
+<span class='line'> 66</span>    *
+<span class='line'> 67</span>    * @example
+<span class='line'> 68</span>    * &lt;pre>
+<span class='line'> 69</span>    *  Krypsis.Device.Location.getLocation({
+<span class='line'> 70</span>    *    timeout: 60000,
+<span class='line'> 71</span>    *
+<span class='line'> 72</span>    *    onSuccess: function(result) {
+<span class='line'> 73</span>    *      Krypsis.$('longitude').innerHTML = result.longitude;
+<span class='line'> 74</span>    *      Krypsis.$('latitude').innerHTML  = result.latitude;
+<span class='line'> 75</span>    *    }
+<span class='line'> 76</span>    *  });
+<span class='line'> 77</span>    *
+<span class='line'> 78</span>    *  // or
+<span class='line'> 79</span>    *
+<span class='line'> 80</span>    *  var task = Krypsis.Device.Location.getLocation({...}, false);
+<span class='line'> 81</span>    *  task.execute();
+<span class='line'> 82</span>    * &lt;/pre>
+<span class='line'> 83</span>    *
+<span class='line'> 84</span>    * @param {Object} options The parameters and callbacks
+<span class='line'> 85</span>    * @param {Boolean} execute Shold the task be executed after creation. Default is true
+<span class='line'> 86</span>    *
+<span class='line'> 87</span>    * @since 0.1
+<span class='line'> 88</span>    * @public
+<span class='line'> 89</span>    */</span><span class="WHIT">
+<span class='line'> 90</span> </span><span class="WHIT">  </span><span class="NAME">getLocation</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 91</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">Krypsis.Device.createTask</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"getlocation"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 92</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 93</span> 
+<span class='line'> 94</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 95</span>    * &lt;p>
+<span class='line'> 96</span>    * Start observing the current location. You can specify
+<span class='line'> 97</span>    * the observing time in ms and a callback to get informed
+<span class='line'> 98</span>    * about the the current location.
+<span class='line'> 99</span>    * &lt;/p>
+<span class='line'>100</span>    *
+<span class='line'>101</span>    * &lt;p>
+<span class='line'>102</span>    * You can stop this listener by calling the {@link Krypsis.Device.Location.stopObserveLocation()}
+<span class='line'>103</span>    * function. Note that this function can only be used as a switch.
+<span class='line'>104</span>    * Which means that only one observer is supported at the same time.
+<span class='line'>105</span>    * After executing startObserveLocation() you have to call stopObserveLocation() to
+<span class='line'>106</span>    * reuse this function.
+<span class='line'>107</span>    * &lt;/p>
+<span class='line'>108</span>    *
+<span class='line'>109</span>    * &lt;p>
+<span class='line'>110</span>    * The following parameters are supported:
+<span class='line'>111</span>    * &lt;ul>
+<span class='line'>112</span>    * &lt;li>&lt;strong>interval&lt;/strong>: The update period in ms. The default value is 10000 => 10 seconds.&lt;/li>
+<span class='line'>113</span>    * &lt;li>&lt;strong>distance&lt;/strong>: The minimal distance in meters between two different points&lt;/li>
+<span class='line'>114</span>    * &lt;li>&lt;strong>accuracy&lt;/strong>: The minimal accuracy in meters before location shall be determined&lt;/li>
+<span class='line'>115</span>    * &lt;/ul>
+<span class='line'>116</span>    * &lt;/p>
+<span class='line'>117</span>    *
+<span class='line'>118</span>    * &lt;p>
+<span class='line'>119</span>    * The onSuccess callback will provide an object with the following properties:
+<span class='line'>120</span>    *
+<span class='line'>121</span>    * &lt;ul>
+<span class='line'>122</span>    * &lt;li>&lt;strong>latitude&lt;/strong>&lt;/li>
+<span class='line'>123</span>    * &lt;li>&lt;strong>longitude&lt;/strong>&lt;/li>
+<span class='line'>124</span>    * &lt;li>&lt;strong>accuracy&lt;/strong>&lt;/li>
+<span class='line'>125</span>    * &lt;li>&lt;strong>altitude&lt;/strong>&lt;/li>
+<span class='line'>126</span>    * &lt;li>&lt;strong>timestamp&lt;/strong>&lt;/li>
+<span class='line'>127</span>    * &lt;/ul>
+<span class='line'>128</span>    * &lt;/p>
+<span class='line'>129</span>    *
+<span class='line'>130</span>    * @example
+<span class='line'>131</span>    * &lt;pre>
+<span class='line'>132</span>    *  Krypsis.Device.Location.startObserveLocation({
+<span class='line'>133</span>    *    parameters: {
+<span class='line'>134</span>    *      // each 0.5 secs
+<span class='line'>135</span>    *      interval: 500,
+<span class='line'>136</span>    *      // 100 meters difference between the two points
+<span class='line'>137</span>    *      distance: 100
+<span class='line'>138</span>    *    },
+<span class='line'>139</span>    *    onSuccess: function(result) {
+<span class='line'>140</span>    *      Krypsis.$('longitude').innerHTML = result.longitude;
+<span class='line'>141</span>    *      Krypsis.$('latitude').innerHTML  = result.latitude;
+<span class='line'>142</span>    *    }
+<span class='line'>143</span>    *  });
+<span class='line'>144</span>    *
+<span class='line'>145</span>    *  // or
+<span class='line'>146</span>    *
+<span class='line'>147</span>    *  var task = Krypsis.Device.Location.startObserveLocation({...}, false);
+<span class='line'>148</span>    *  task.execute();
+<span class='line'>149</span>    * &lt;/pre>
+<span class='line'>150</span> 
+<span class='line'>151</span>    *
+<span class='line'>152</span>    * @param {Object} options properties and callbacks
+<span class='line'>153</span>    * @param {Boolean} execute Shold the task be executed after creation. Default is true
+<span class='line'>154</span>    *
+<span class='line'>155</span>    * @since 0.1
+<span class='line'>156</span>    * @public
+<span class='line'>157</span>    */</span><span class="WHIT">
+<span class='line'>158</span> </span><span class="WHIT">  </span><span class="NAME">startObserveLocation</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>159</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">Krypsis.Device.createTask</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"startobservelocation"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>160</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>161</span> 
+<span class='line'>162</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'>163</span>    * &lt;p>
+<span class='line'>164</span>    * Stop the location obervation.
+<span class='line'>165</span>    * &lt;/p>
+<span class='line'>166</span>    *
+<span class='line'>167</span>    * &lt;p>
+<span class='line'>168</span>    * The onSuccess callback is called, if the observation is
+<span class='line'>169</span>    * stopped successfully. No parameters and arguments expected
+<span class='line'>170</span>    * &lt;/p>
+<span class='line'>171</span>    *
+<span class='line'>172</span>    * @example
+<span class='line'>173</span>    * &lt;pre>
+<span class='line'>174</span>    *  Krypsis.Device.Location.stopObserveLocation({});
+<span class='line'>175</span>    *
+<span class='line'>176</span>    *  // or
+<span class='line'>177</span>    *
+<span class='line'>178</span>    *  var task = Krypsis.Device.Location.stopObserveLocation({...}, false);
+<span class='line'>179</span>    *  task.execute();
+<span class='line'>180</span>    * &lt;/pre>
+<span class='line'>181</span>    *
+<span class='line'>182</span>    * @param {Object} options The arguments. Currently not supported and ignored
+<span class='line'>183</span>    * @param {Boolean} execute Shold the task be executed after creation. Default is true
+<span class='line'>184</span>    *
+<span class='line'>185</span>    * @since 0.1
+<span class='line'>186</span>    * @public
+<span class='line'>187</span>    */</span><span class="WHIT">
+<span class='line'>188</span> </span><span class="WHIT">  </span><span class="NAME">stopObserveLocation</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>189</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">Krypsis.Device.createTask</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"stopobservelocation"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>190</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>191</span> </span><span class="PUNC">}</span><span class="PUNC">;</span></pre></body></html>

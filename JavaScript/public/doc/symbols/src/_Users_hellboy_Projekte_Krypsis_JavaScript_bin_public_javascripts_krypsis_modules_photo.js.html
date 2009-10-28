@@ -1,0 +1,233 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * Krypsis - Write web applications based on proved technologies
+<span class='line'>  3</span>  * like HTML, JavaScript, CSS... and access functionality of your
+<span class='line'>  4</span>  * smartphone in a platform independent way.
+<span class='line'>  5</span>  *
+<span class='line'>  6</span>  * Copyright (C) 2008 - 2009 krypsis.org (have.a.go@krypsis.org)
+<span class='line'>  7</span>  *
+<span class='line'>  8</span>  * This program is free software; you can redistribute it and/or
+<span class='line'>  9</span>  * modify it under the terms of the GNU General Public License
+<span class='line'> 10</span>  * as published by the Free Software Foundation; either version 2
+<span class='line'> 11</span>  * of the License, or (at your option) any later version.
+<span class='line'> 12</span>  *
+<span class='line'> 13</span>  * This program is distributed in the hope that it will be useful,
+<span class='line'> 14</span>  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class='line'> 15</span>  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class='line'> 16</span>  * GNU General Public License for more details.
+<span class='line'> 17</span>  *
+<span class='line'> 18</span>  * You should have received a copy of the GNU General Public License
+<span class='line'> 19</span>  * along with this program; if not, write to the Free Software
+<span class='line'> 20</span>  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+<span class='line'> 21</span>  */</span><span class="WHIT">
+<span class='line'> 22</span> 
+<span class='line'> 23</span> </span><span class="COMM">/**
+<span class='line'> 24</span>  * &lt;p>
+<span class='line'> 25</span>  * The photo module gives you the abbility to retreive pictures from the
+<span class='line'> 26</span>  * device. Unfortunately there is currently no way to pass the binary data
+<span class='line'> 27</span>  * to the JavaScript. Therefore we developed an image service where the photos
+<span class='line'> 28</span>  * will be strored temporary. 
+<span class='line'> 29</span>  * &lt;/p>
+<span class='line'> 30</span>  *
+<span class='line'> 31</span>  *
+<span class='line'> 32</span>  * @static
+<span class='line'> 33</span>  * @class Photo module to take and upload pictures to a
+<span class='line'> 34</span>  * temporary remote image service
+<span class='line'> 35</span>  * @since 0.1
+<span class='line'> 36</span>  * @depends ../krypsis.js
+<span class='line'> 37</span>  */</span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="NAME">Krypsis.Device.Photo</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 39</span> 
+<span class='line'> 40</span> </span><span class="WHIT">  </span><span class="COMM">/* Each module must provide its unique context */</span><span class="WHIT">
+<span class='line'> 41</span> </span><span class="WHIT">  </span><span class="NAME">context</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"photo"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 42</span> 
+<span class='line'> 43</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 44</span>    * &lt;p>
+<span class='line'> 45</span>    * Starts the camera application and lets the user
+<span class='line'> 46</span>    * take a photo. This photo will be uploaded to a temporary
+<span class='line'> 47</span>    * image server and the response of this server will be
+<span class='line'> 48</span>    * returned as the arguments of the onSuccess callback.
+<span class='line'> 49</span>    * Notice: The timeout for this command is set to 60 sec. If you
+<span class='line'> 50</span>    * exepect a longer command execution then overwrite the timeout.
+<span class='line'> 51</span>    * &lt;/p>
+<span class='line'> 52</span>    * &lt;p>
+<span class='line'> 53</span>    * You have to provide the following parameters:
+<span class='line'> 54</span>    * &lt;ul>
+<span class='line'> 55</span>    * &lt;li>&lt;strong>uploadurl&lt;/strong>: The remote url of the temporary image server.
+<span class='line'> 56</span>    * This address must be accessible by the the krypsis framework and should accept post messages.&lt;/li>
+<span class='line'> 57</span>    * &lt;li>&lt;strong>parametername&lt;/strong>: The name of the parameter that will be associated
+<span class='line'> 58</span>    * with the uploaded image. You will use this parameter on the server side to access the binary
+<span class='line'> 59</span>    * data&lt;/li>
+<span class='line'> 60</span>    * &lt;li>&lt;strong>filename&lt;/strong>: Optional. The name of the picture file. Will be generated when missing.&lt;/li>
+<span class='line'> 61</span>    * &lt;li>&lt;strong>*&lt;/strong>: Optional. You can pass additionaly any other parameter that will be passed to the image
+<span class='line'> 62</span>    * server. For example, if you are using the Krypsis Image Server then you have to provide the Kypsis Id (kid)&lt;/li>
+<span class='line'> 63</span>    * &lt;/ul>
+<span class='line'> 64</span>    * &lt;/p>
+<span class='line'> 65</span>    *
+<span class='line'> 66</span>    * &lt;p>
+<span class='line'> 67</span>    * The onSuccess callback provides an object with the following properties:
+<span class='line'> 68</span>    * &lt;ul>
+<span class='line'> 69</span>    * &lt;li>&lt;strong>response&lt;/strong>: The full text of the server response. In most cases you will provide your
+<span class='line'> 70</span>    * own temporary image service so you have to know what do do with that response string.
+<span class='line'> 71</span>    * In many cases it will be either a json string or a uri like query part that have to be parsed.&lt;/li>
+<span class='line'> 72</span>    * &lt;/ul>
+<span class='line'> 73</span>    * &lt;/p>
+<span class='line'> 74</span>    *
+<span class='line'> 75</span>    * &lt;p>
+<span class='line'> 76</span>    * The possible error codes are:
+<span class='line'> 77</span>    * &lt;ul>
+<span class='line'> 78</span>    * &lt;li>&lt;strong>CANCELED_BY_USER&lt;/strong> The user canceled the operation&lt;/li>
+<span class='line'> 79</span>    * &lt;/ul>
+<span class='line'> 80</span>    * &lt;/p>
+<span class='line'> 81</span>    *
+<span class='line'> 82</span>    * @example
+<span class='line'> 83</span>    * &lt;em>An example of taking a photo and using any other temporary
+<span class='line'> 84</span>    * image service.&lt;/em>
+<span class='line'> 85</span>    * &lt;pre>
+<span class='line'> 86</span>    *  Krypsis.Device.Photo.takeAndUpload({
+<span class='line'> 87</span>    *    parameters: {
+<span class='line'> 88</span>    *      uploadurl: 'http://my.remote.server.com/upload/temporary_image',
+<span class='line'> 89</span>    *      parametername: 'image'
+<span class='line'> 90</span>    *      filename: 'photo.jpg'
+<span class='line'> 91</span>    *    },
+<span class='line'> 92</span>    *    onSuccess: function(result) {
+<span class='line'> 93</span>    *      Krypsis.$('serverResponse').innerHTML = result.response;
+<span class='line'> 94</span>    *    }
+<span class='line'> 95</span>    *  });
+<span class='line'> 96</span>    * &lt;/pre>
+<span class='line'> 97</span>    *
+<span class='line'> 98</span>    * @example
+<span class='line'> 99</span>    * &lt;em>
+<span class='line'>100</span>    * And example of taking a photo and using the krypsis image
+<span class='line'>101</span>    * service for saving the temporary image. The Krypsis image service
+<span class='line'>102</span>    * expects the Krypsis Id as parameter.
+<span class='line'>103</span>    * &lt;/em>
+<span class='line'>104</span>    * &lt;pre>
+<span class='line'>105</span>    *  Krypsis.Device.Base.getMetaData({
+<span class='line'>106</span>    *    onSuccess: function(args) {
+<span class='line'>107</span>    *      takePhoto(args.kid);
+<span class='line'>108</span>    *    }
+<span class='line'>109</span>    *  });
+<span class='line'>110</span>    *
+<span class='line'>111</span>    *  function takePhoto(krypsisId) {
+<span class='line'>112</span>    *    Krypsis.Device.Photo.takeAndUpload({
+<span class='line'>113</span>    *      parameters: {
+<span class='line'>114</span>    *        uploadurl: 'http://image.krypsis.org/images',
+<span class='line'>115</span>    *        parametername: 'file'
+<span class='line'>116</span>    *        filename: 'photo.jpg',
+<span class='line'>117</span>    *        kid: krypsisId
+<span class='line'>118</span>    *      },
+<span class='line'>119</span>    *      onSuccess: function(result) {
+<span class='line'>120</span>    *        Krypsis.$('serverResponse').innerHTML = result.response;
+<span class='line'>121</span>    *      }
+<span class='line'>122</span>    *    });
+<span class='line'>123</span>    *  }
+<span class='line'>124</span>    *
+<span class='line'>125</span>    *  // or
+<span class='line'>126</span>    *
+<span class='line'>127</span>    *  var task = Krypsis.Device.Photo.takeAndUpload({...}, false);
+<span class='line'>128</span>    *  task.execute();
+<span class='line'>129</span>    * &lt;/pre>
+<span class='line'>130</span>    *
+<span class='line'>131</span>    * @param {Object} options The parameters and callbacks
+<span class='line'>132</span>    * @param {Boolean} execute Shold the task be executed after creation. Default is true
+<span class='line'>133</span>    *
+<span class='line'>134</span>    * @since 0.1
+<span class='line'>135</span>    * @public
+<span class='line'>136</span>    */</span><span class="WHIT">
+<span class='line'>137</span> </span><span class="WHIT">  </span><span class="NAME">takeAndUpload</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>138</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">Krypsis.Device.createTask</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"takeandupload"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>139</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>140</span> 
+<span class='line'>141</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'>142</span>    * &lt;p>
+<span class='line'>143</span>    * Starts the camera application and let't the user take a picture.
+<span class='line'>144</span>    * This photo will be down sized to 1024x768 and converted into a Base64 String.
+<span class='line'>145</span>    * &lt;/p>
+<span class='line'>146</span>    * &lt;p>
+<span class='line'>147</span>    * Krypsis will also create a thumbnailed version for you. You can control the thumbnail
+<span class='line'>148</span>    * creation by specifying the width or the height or both of the thumb. The Thumbnail will
+<span class='line'>149</span>    * also be a Base64 encoded string.
+<span class='line'>150</span>    * &lt;/p>
+<span class='line'>151</span>    *
+<span class='line'>152</span>    * &lt;p>
+<span class='line'>153</span>    * This function expects and supports the following parameters:
+<span class='line'>154</span>    * &lt;ul>
+<span class='line'>155</span>    * &lt;li>&lt;strong>{int} width&lt;/strong> the width of the thumbnail. The default value will be 100px. &lt;em>[optional]&lt;/em>&lt;/li>
+<span class='line'>156</span>    * &lt;li>&lt;strong>{int} height&lt;/strong> the heigth of the thumbnail. The default value will be 100px. &lt;em>[optional]&lt;/em>&lt;/li>
+<span class='line'>157</span>    * &lt;/ul>
+<span class='line'>158</span>    * &lt;/p>
+<span class='line'>159</span>    *
+<span class='line'>160</span>    * &lt;p>
+<span class='line'>161</span>    * The onSuccess callback provides an object with the following properties:
+<span class='line'>162</span>    * &lt;ul>
+<span class='line'>163</span>    * &lt;li>&lt;strong>{String} data&lt;/strong> The image data as a Base64 encoded string&lt;/li>
+<span class='line'>164</span>    * &lt;li>&lt;strong>{String} thumbnaildata&lt;/strong> The thumbnails data as Base64 encoded string. Note that this field can
+<span class='line'>165</span>    * be empty sind a thumbnail is only returned if &lt;/li>
+<span class='line'>166</span>    * &lt;li>&lt;strong>{String} contenttype&lt;/strong> The contenttype of the image. Usualy 'image/jpeg' as we work with mobile
+<span class='line'>167</span>    * devices, but also 'image/png' is not uncommon.&lt;/li>
+<span class='line'>168</span>    * &lt;li>&lt;strong>&lt;/strong>&lt;/li>
+<span class='line'>169</span>    * &lt;/ul>
+<span class='line'>170</span>    * &lt;/p>
+<span class='line'>171</span>    *
+<span class='line'>172</span>    * &lt;p>
+<span class='line'>173</span>    * The possible error codes are:
+<span class='line'>174</span>    * &lt;ul>
+<span class='line'>175</span>    * &lt;li>&lt;strong>CANCELED_BY_USER&lt;/strong> The user canceled the operation&lt;/li>
+<span class='line'>176</span>    * &lt;li>&lt;strong>CAPABILITY_NOT_SUPPORTED&lt;/strong> The device has no camera (or media library)&lt;/li>
+<span class='line'>177</span>    * &lt;/ul>
+<span class='line'>178</span>    * &lt;/p>
+<span class='line'>179</span> 
+<span class='line'>180</span>    *
+<span class='line'>181</span>    * @example
+<span class='line'>182</span>    * &lt;em>
+<span class='line'>183</span>    * The following example shows how to get a photo from camera and display the thumbnail.
+<span class='line'>184</span>    * Previously the screen resolution will be determined to fit the photo to the screen
+<span class='line'>185</span>    * &lt;/em>
+<span class='line'>186</span>    *
+<span class='line'>187</span>    * &lt;pre>
+<span class='line'>188</span>    *  Krypsis.Device.Scree.getInfo({
+<span class='line'>189</span>    *    onSuccess: function(result) {
+<span class='line'>190</span>    *      getPhoto(result.width, result.height);
+<span class='line'>191</span>    *    }
+<span class='line'>192</span>    *  });
+<span class='line'>193</span>    *
+<span class='line'>194</span>    *  function getPhoto(width, height) {
+<span class='line'>195</span>    *    Krypsis.Device.Photo.takeAndGet({
+<span class='line'>196</span>    *      parameters: {
+<span class='line'>197</span>    *        width: width,
+<span class='line'>198</span>    *        height: height
+<span class='line'>199</span>    *      },
+<span class='line'>200</span>    *      onSuccess: function(result) {
+<span class='line'>201</span>    *        if (result.thumbnaildata) {
+<span class='line'>202</span>    *          var img = Krypsis.$('image');
+<span class='line'>203</span>    *          // Display the Base64 encoded image like this
+<span class='line'>204</span>    *          // &lt;img src="data:image/gif;base64,KZGlkjgjhkuz..."&gt;
+<span class='line'>205</span>    *          img.src = "data:" + result.contenttype + ";base64," + result.thumbnaildata;
+<span class='line'>206</span>    *        }
+<span class='line'>207</span>    *      }
+<span class='line'>208</span>    *    });
+<span class='line'>209</span>    *  }
+<span class='line'>210</span>    *
+<span class='line'>211</span>    *  // or
+<span class='line'>212</span>    *
+<span class='line'>213</span>    *  var task = Krypsis.Device.Photo.takeAndGet({..}, false);
+<span class='line'>214</span>    *  task.execute();
+<span class='line'>215</span>    * &lt;/pre>
+<span class='line'>216</span>    *
+<span class='line'>217</span>    * @param {Object} options The parameters and Callbacks
+<span class='line'>218</span>    * @param {Boolean} execute Shold the task be executed after creation. Default is true
+<span class='line'>219</span>    *
+<span class='line'>220</span>    * @since 0.2
+<span class='line'>221</span>    * @public
+<span class='line'>222</span>    */</span><span class="WHIT">
+<span class='line'>223</span> </span><span class="WHIT">  </span><span class="NAME">takeAndGet</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>224</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">Krypsis.Device.createTask</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"takeandget"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>225</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>226</span> </span><span class="PUNC">}</span><span class="PUNC">;</span></pre></body></html>

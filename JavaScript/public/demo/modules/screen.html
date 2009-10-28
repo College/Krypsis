@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <!-- First of all we need the Krypsis lib for Connector, Error and Ajax support. -->
+    <script type="text/javascript" src="../../javascripts/krypsis/krypsis.js">&nbsp;</script>
+
+    <!-- Replace this this include with the module you need. Of cource many modules are possible. -->
+    <script type="text/javascript" src="../../javascripts/krypsis/modules/screen.js">&nbsp;</script>
+
+    <!-- If you intend to test you web app first in browser, then include the mocking library... -->
+    <script type="text/javascript" src="../../javascripts/krypsis/mock/mock.js">&nbsp;</script>
+
+    <!-- To get notified about the action krypsis is doing, include the logger or provide your own adapter -->
+    <script type="text/javascript" src="../../javascripts/krypsis/mock/logger.js">&nbsp;</script>
+
+    <!-- And the module you are going to mock. -->
+    <script type="text/javascript" src="../js/screen.js">&nbsp;</script>
+
+    <!--
+      If you run your app in production mode you may want to include a minimized
+      version of Krypsis and it's modules. Then uncomment this line:
+      <script type="text/javascript" src="../../javascripts/krypsis/min/krypsis-all.min.js" >&nbsp;</script>
+      This script contains the Krypsis lib and all available modules.
+    -->
+  </head>
+
+  <!--
+  These callbacks are very important as Krypsis needs to know when a page
+  loads and when the user leaves the page. Depends on this all previous
+  listeners will be destroyed.
+  -->
+  <body onload="Krypsis.load();" onunload="Krypsis.unload();">
+
+    <ul>
+      <li>
+        <p>
+          Get the resolution of the phone display
+        </p>
+        <div>
+          <a href="javascript:Krypsis.Demo.Screen.getResolution('KrypsisScreenInfo');">Get screen resolution</a>
+        </div>
+        <div id="KrypsisScreenInfo"> </div>
+      </li>
+
+      <li>
+        <p>
+          Get notified whenever the screen is flipped
+        </p>
+        <div>
+          <a href="javascript:Krypsis.Demo.Screen.starObserveOrientation('KrypsisScreenOrientation');">Start screen orientation listener</a>
+        </div>
+        <div id="KrypsisScreenOrientation"> </div>
+      </li>
+
+      <li>
+        <p>
+          Stop the screen orientation listener
+        </p>
+        <div>
+          <a href="javascript:Krypsis.Demo.Screen.stopObserveOrientation('KrypsisScreenOrientation');">Stop screen orientation listener</a>
+        </div>
+      </li>
+    </ul>
+
+    <a href="../index.html">Back</a>
+  </body>
+</html>

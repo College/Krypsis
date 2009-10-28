@@ -1,0 +1,135 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * Krypsis - Write web applications based on proved technologies
+<span class='line'>  3</span>  * like HTML, JavaScript, CSS... and access functionality of your
+<span class='line'>  4</span>  * smartphone in a platform independent way.
+<span class='line'>  5</span>  *
+<span class='line'>  6</span>  * Copyright (C) 2008 - 2009 krypsis.org (have.a.go@krypsis.org)
+<span class='line'>  7</span>  *
+<span class='line'>  8</span>  * This program is free software; you can redistribute it and/or
+<span class='line'>  9</span>  * modify it under the terms of the GNU General Public License
+<span class='line'> 10</span>  * as published by the Free Software Foundation; either version 2
+<span class='line'> 11</span>  * of the License, or (at your option) any later version.
+<span class='line'> 12</span>  *
+<span class='line'> 13</span>  * This program is distributed in the hope that it will be useful,
+<span class='line'> 14</span>  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class='line'> 15</span>  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class='line'> 16</span>  * GNU General Public License for more details.
+<span class='line'> 17</span>  *
+<span class='line'> 18</span>  * You should have received a copy of the GNU General Public License
+<span class='line'> 19</span>  * along with this program; if not, write to the Free Software
+<span class='line'> 20</span>  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+<span class='line'> 21</span>  */</span><span class="WHIT">
+<span class='line'> 22</span> 
+<span class='line'> 23</span> </span><span class="COMM">/**
+<span class='line'> 24</span>  * &lt;p>
+<span class='line'> 25</span>  * The phone module gives you access to the phone core
+<span class='line'> 26</span>  * functionality like sending sms or dialing a phone number.
+<span class='line'> 27</span>  * &lt;/p>
+<span class='line'> 28</span>  *
+<span class='line'> 29</span>  * @static
+<span class='line'> 30</span>  * @class The phone module to access the phone core functions
+<span class='line'> 31</span>  * @since 0.2
+<span class='line'> 32</span>  * @depends ../krypsis.js
+<span class='line'> 33</span>  */</span><span class="WHIT">
+<span class='line'> 34</span> </span><span class="NAME">Krypsis.Device.Phone</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 35</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 36</span>    * @private
+<span class='line'> 37</span>    */</span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="WHIT">  </span><span class="NAME">context</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'phone'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 39</span> 
+<span class='line'> 40</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 41</span>    * &lt;p>
+<span class='line'> 42</span>    * Sends a short message to a receiver.
+<span class='line'> 43</span>    * &lt;/p>
+<span class='line'> 44</span>    *
+<span class='line'> 45</span>    * &lt;p>
+<span class='line'> 46</span>    * The expected parameters are the phone number to send the message
+<span class='line'> 47</span>    * to and the text to send.
+<span class='line'> 48</span>    *
+<span class='line'> 49</span>    * &lt;ul>
+<span class='line'> 50</span>    * &lt;li>&lt;strong>{String} number&lt;/strong> The phone number of the receiver. Required!&lt;/li>
+<span class='line'> 51</span>    * &lt;li>&lt;strong>{String} text&lt;/strong> The text to send. Required!&lt;/li>
+<span class='line'> 52</span>    * &lt;/ul>
+<span class='line'> 53</span>    * &lt;/p>
+<span class='line'> 54</span>    *
+<span class='line'> 55</span>    * @example
+<span class='line'> 56</span>    * &lt;pre>
+<span class='line'> 57</span>    *  Krypsis.Device.Phone.sendSms({
+<span class='line'> 58</span>    *    parameters: {
+<span class='line'> 59</span>    *      number: '+4912234466887',
+<span class='line'> 60</span>    *      text:   'Hi, I will be there soon ;)'
+<span class='line'> 61</span>    *    },
+<span class='line'> 62</span>    *    onSuccess: function() {
+<span class='line'> 63</span>    *      alert("SMS sent successfully");
+<span class='line'> 64</span>    *    }
+<span class='line'> 65</span>    *  });
+<span class='line'> 66</span>    *
+<span class='line'> 67</span>    *  // or
+<span class='line'> 68</span>    *
+<span class='line'> 69</span>    *  var task = Krypsis.Device.Phone.sendSms({...}, false);
+<span class='line'> 70</span>    *  task.execute();
+<span class='line'> 71</span>    * &lt;/pre>
+<span class='line'> 72</span>    *
+<span class='line'> 73</span>    * @param {Object} options The options map with the parameters
+<span class='line'> 74</span>    * and the callbacks.
+<span class='line'> 75</span>    * @param {Boolean} execute Shold the task be executed after creation. Default is true
+<span class='line'> 76</span>    *
+<span class='line'> 77</span>    * @since 0.2
+<span class='line'> 78</span>    * @public
+<span class='line'> 79</span>    */</span><span class="WHIT">
+<span class='line'> 80</span> </span><span class="WHIT">  </span><span class="NAME">sendSms</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">Krypsis.Device.createTask</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"sendsms"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 82</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 83</span> 
+<span class='line'> 84</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 85</span>    * &lt;p>
+<span class='line'> 86</span>    * Make a phone call to a particular number.
+<span class='line'> 87</span>    * Note that the user can cancel this operation.
+<span class='line'> 88</span>    * &lt;/p>
+<span class='line'> 89</span>    *
+<span class='line'> 90</span>    * &lt;p>
+<span class='line'> 91</span>    * &lt;em>Parameters&lt;/em>
+<span class='line'> 92</span>    * &lt;ul>
+<span class='line'> 93</span>    * &lt;li>&lt;strong>{String} number&lt;/strong> The phone number. There are no limitations on the
+<span class='line'> 94</span>    * number format, but make sure the number is valid. Otherwise an error will be thrown&lt;/li>
+<span class='line'> 95</span>    * &lt;/ul>
+<span class='line'> 96</span>    *
+<span class='line'> 97</span>    * &lt;em>Callbacks&lt;/em>
+<span class='line'> 98</span>    * &lt;ul>
+<span class='line'> 99</span>    * &lt;li>&lt;strong>onSuccess&lt;/strong> Will be called when
+<span class='line'>100</span>    * the user accepts the number and before the dialing begins.&lt;/li>
+<span class='line'>101</span>    * &lt;li>&lt;strong>onFailure&lt;/strong> Is executed when the phone number is malformed or
+<span class='line'>102</span>    * the user canceled the operation.&lt;/li>
+<span class='line'>103</span>    * &lt;/ul>
+<span class='line'>104</span>    * &lt;/p>
+<span class='line'>105</span>    *
+<span class='line'>106</span>    * @example
+<span class='line'>107</span>    * &lt;pre>
+<span class='line'>108</span>    *  Krypsis.Device.Phone.dialNumber({
+<span class='line'>109</span>    *    number: '00491234123456'
+<span class='line'>110</span>    *  });
+<span class='line'>111</span>    *
+<span class='line'>112</span>    *  // or
+<span class='line'>113</span>    *
+<span class='line'>114</span>    *  var task = Krypsis.Device.Phone.dialNumber({...}, false);
+<span class='line'>115</span>    *  task.execute();
+<span class='line'>116</span>    * &lt;/pre>
+<span class='line'>117</span>    *
+<span class='line'>118</span>    *
+<span class='line'>119</span>    * @param {Object} options The parameters and callbacks
+<span class='line'>120</span>    * @param {Boolean} execute Shold the task be executed after creation. Default is true
+<span class='line'>121</span>    *
+<span class='line'>122</span>    * @since 0.2
+<span class='line'>123</span>    * @public
+<span class='line'>124</span>    */</span><span class="WHIT">
+<span class='line'>125</span> </span><span class="WHIT">  </span><span class="NAME">dialNumber</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>126</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">Krypsis.Device.createTask</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"dialnumber"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>127</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>128</span> </span><span class="PUNC">}</span><span class="PUNC">;</span></pre></body></html>

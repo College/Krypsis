@@ -1,0 +1,164 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * Krypsis - Write web applications based on proved technologies
+<span class='line'>  3</span>  * like HTML, JavaScript, CSS... and access functionality of your
+<span class='line'>  4</span>  * smartphone in a platform independent way.
+<span class='line'>  5</span>  *
+<span class='line'>  6</span>  * Copyright (C) 2008 - 2009 krypsis.org (have.a.go@krypsis.org)
+<span class='line'>  7</span>  *
+<span class='line'>  8</span>  * This program is free software; you can redistribute it and/or
+<span class='line'>  9</span>  * modify it under the terms of the GNU General Public License
+<span class='line'> 10</span>  * as published by the Free Software Foundation; either version 2
+<span class='line'> 11</span>  * of the License, or (at your option) any later version.
+<span class='line'> 12</span>  *
+<span class='line'> 13</span>  * This program is distributed in the hope that it will be useful,
+<span class='line'> 14</span>  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class='line'> 15</span>  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class='line'> 16</span>  * GNU General Public License for more details.
+<span class='line'> 17</span>  *
+<span class='line'> 18</span>  * You should have received a copy of the GNU General Public License
+<span class='line'> 19</span>  * along with this program; if not, write to the Free Software
+<span class='line'> 20</span>  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+<span class='line'> 21</span>  */</span><span class="WHIT">
+<span class='line'> 22</span> 
+<span class='line'> 23</span> </span><span class="COMM">/**
+<span class='line'> 24</span>  * &lt;p>
+<span class='line'> 25</span>  * The screen module provides usefull information to access the screen
+<span class='line'> 26</span>  * resolution and (if the device supports it) the orientation of the screen
+<span class='line'> 27</span>  * in degrees.
+<span class='line'> 28</span>  * &lt;/p>
+<span class='line'> 29</span>  *
+<span class='line'> 30</span>  * @static
+<span class='line'> 31</span>  * @class Privides functions to acces the screen data
+<span class='line'> 32</span>  * and observe screen events.
+<span class='line'> 33</span>  * @since 0.1
+<span class='line'> 34</span>  * @depends ../krypsis.js
+<span class='line'> 35</span>  */</span><span class="WHIT">
+<span class='line'> 36</span> </span><span class="NAME">Krypsis.Device.Screen</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 37</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 38</span>    * @private
+<span class='line'> 39</span>    */</span><span class="WHIT">
+<span class='line'> 40</span> </span><span class="WHIT">  </span><span class="NAME">context</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'screen'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 41</span> 
+<span class='line'> 42</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 43</span>    * &lt;p>
+<span class='line'> 44</span>    * Get the information about the physical screen.
+<span class='line'> 45</span>    * The result is the resolution and, if available, the
+<span class='line'> 46</span>    * orientation of the screen in degrees
+<span class='line'> 47</span>    * &lt;/p>
+<span class='line'> 48</span>    *
+<span class='line'> 49</span>    * &lt;p>
+<span class='line'> 50</span>    * The onSuccess callback will provide you an object with the following
+<span class='line'> 51</span>    * properties:
+<span class='line'> 52</span>    * &lt;ul>
+<span class='line'> 53</span>    * &lt;li>&lt;strong>width&lt;/strong>: The visible width in px&lt;/li>
+<span class='line'> 54</span>    * &lt;li>&lt;strong>height&lt;/strong>: The visible height in px&lt;/li>
+<span class='line'> 55</span>    * &lt;li>&lt;strong>orientation&lt;/strong>: A value between 0 and 360 that indicates the degrees of rotation.&lt;/li>
+<span class='line'> 56</span>    * &lt;/ul>
+<span class='line'> 57</span>    * &lt;/p>
+<span class='line'> 58</span>    *
+<span class='line'> 59</span>    * @example
+<span class='line'> 60</span>    * &lt;pre>
+<span class='line'> 61</span>    *  Krypsis.Device.Screen.getResolution({
+<span class='line'> 62</span>    *    onSuccess: function(result) {
+<span class='line'> 63</span>    *      result.width
+<span class='line'> 64</span>    *      result.height
+<span class='line'> 65</span>    *      result.orientation
+<span class='line'> 66</span>    *    }
+<span class='line'> 67</span>    *  });
+<span class='line'> 68</span>    *
+<span class='line'> 69</span>    *  // or
+<span class='line'> 70</span>    *
+<span class='line'> 71</span>    *  var task = Krypsis.Device.Screen.getResolution({...}, false);
+<span class='line'> 72</span>    *  task.execute();
+<span class='line'> 73</span>    * &lt;/pre>
+<span class='line'> 74</span>    *
+<span class='line'> 75</span>    * @param {Object} options paramerters and callbacks
+<span class='line'> 76</span>    * @param {Boolean} execute Shold the task be executed after creation. Default is true
+<span class='line'> 77</span>    *
+<span class='line'> 78</span>    * @since 0.1
+<span class='line'> 79</span>    * @public
+<span class='line'> 80</span>    */</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="WHIT">  </span><span class="NAME">getResolution</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 82</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">Krypsis.Device.createTask</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'getresolution'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 83</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 84</span> 
+<span class='line'> 85</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 86</span>    * &lt;p>
+<span class='line'> 87</span>    * Get notified when the screen orientation is changed
+<span class='line'> 88</span>    * &lt;/p>
+<span class='line'> 89</span>    *
+<span class='line'> 90</span>    * &lt;p>
+<span class='line'> 91</span>    * The onSuccess callback will be called each time, when this event occurs.
+<span class='line'> 92</span>    * The passed object has the following properties:
+<span class='line'> 93</span>    * &lt;ul>
+<span class='line'> 94</span>    * &lt;li>&lt;strong>orientation&lt;/strong>: A value between 0 and 360 that indicates the degrees of rotation.&lt;/li>
+<span class='line'> 95</span>    * &lt;/ul>
+<span class='line'> 96</span>    * &lt;/p>
+<span class='line'> 97</span>    *
+<span class='line'> 98</span>    * @example
+<span class='line'> 99</span>    * &lt;pre>
+<span class='line'>100</span>    *  Krypsis.Device.Screen.startObserveOrientation({
+<span class='line'>101</span>    *    onSuccess: function(result) {
+<span class='line'>102</span>    *      alert("device flipped to: " + result.orientation);
+<span class='line'>103</span>    *    }
+<span class='line'>104</span>    *  });
+<span class='line'>105</span>    *
+<span class='line'>106</span>    *  // or
+<span class='line'>107</span>    *
+<span class='line'>108</span>    *  var task = Krypsis.Device.Screen.startObserveOrientation({...}, false);
+<span class='line'>109</span>    *  task.execute();
+<span class='line'>110</span>    * &lt;/pre>
+<span class='line'>111</span>    *
+<span class='line'>112</span>    * @param {Object} options The properties and callbacks
+<span class='line'>113</span>    * @param {Boolean} execute Shold the task be executed after creation. Default is true
+<span class='line'>114</span>    *
+<span class='line'>115</span>    * @since 0.1
+<span class='line'>116</span>    * @public
+<span class='line'>117</span>    */</span><span class="WHIT">
+<span class='line'>118</span> </span><span class="WHIT">  </span><span class="NAME">startObserveOrientation</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>119</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">Krypsis.Device.createTask</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"startobserveorientation"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>120</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>121</span> 
+<span class='line'>122</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'>123</span>    * &lt;p>
+<span class='line'>124</span>    * Before you can use the {@link Krypsis.Device.Base.startObserveOrientation()}
+<span class='line'>125</span>    * function a second time, you have to stop the observation of the orientation
+<span class='line'>126</span>    * by calling this function.
+<span class='line'>127</span>    * &lt;/p>
+<span class='line'>128</span>    *
+<span class='line'>129</span>    * &lt;p>
+<span class='line'>130</span>    * The onSuccess callback indicates that the event notifier is stopped
+<span class='line'>131</span>    * successfully.
+<span class='line'>132</span>    * &lt;/p>
+<span class='line'>133</span>    *
+<span class='line'>134</span>    * &lt;p>
+<span class='line'>135</span>    * This function does not expect any parameters
+<span class='line'>136</span>    * &lt;/p>
+<span class='line'>137</span>    *
+<span class='line'>138</span>    * @example
+<span class='line'>139</span>    * &lt;pre>
+<span class='line'>140</span>    *  Krypsis.Device.Screen.stopObserveOrientation({});
+<span class='line'>141</span>    *
+<span class='line'>142</span>    *  // or
+<span class='line'>143</span>    *
+<span class='line'>144</span>    *  var task = Krypsis.Device.Screen.stopObserveOrientation({}, false);
+<span class='line'>145</span>    *  task.execute();
+<span class='line'>146</span>    * &lt;/pre>
+<span class='line'>147</span>    *
+<span class='line'>148</span>    * @param {Object} options The parameters and callbacks
+<span class='line'>149</span>    * @param {Boolean} execute Shold the task be executed after creation. Default is true
+<span class='line'>150</span>    *
+<span class='line'>151</span>    * @since 0.1
+<span class='line'>152</span>    * @public
+<span class='line'>153</span>    */</span><span class="WHIT">
+<span class='line'>154</span> </span><span class="WHIT">  </span><span class="NAME">stopObserveOrientation</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>155</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">Krypsis.Device.createTask</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"stopobserveorientation"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>156</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>157</span> </span><span class="PUNC">}</span><span class="PUNC">;</span></pre></body></html>

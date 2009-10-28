@@ -1,0 +1,144 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * Krypsis - Write web applications based on proved technologies
+<span class='line'>  3</span>  * like HTML, JavaScript, CSS... and access functionality of your
+<span class='line'>  4</span>  * smartphone in a platform independent way.
+<span class='line'>  5</span>  *
+<span class='line'>  6</span>  * Copyright (C) 2008 - 2009 krypsis.org (have.a.go@krypsis.org)
+<span class='line'>  7</span>  *
+<span class='line'>  8</span>  * This program is free software; you can redistribute it and/or
+<span class='line'>  9</span>  * modify it under the terms of the GNU General Public License
+<span class='line'> 10</span>  * as published by the Free Software Foundation; either version 2
+<span class='line'> 11</span>  * of the License, or (at your option) any later version.
+<span class='line'> 12</span>  *
+<span class='line'> 13</span>  * This program is distributed in the hope that it will be useful,
+<span class='line'> 14</span>  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class='line'> 15</span>  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class='line'> 16</span>  * GNU General Public License for more details.
+<span class='line'> 17</span>  *
+<span class='line'> 18</span>  * You should have received a copy of the GNU General Public License
+<span class='line'> 19</span>  * along with this program; if not, write to the Free Software
+<span class='line'> 20</span>  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+<span class='line'> 21</span>  */</span><span class="WHIT">
+<span class='line'> 22</span> 
+<span class='line'> 23</span> </span><span class="COMM">/**
+<span class='line'> 24</span>  * &lt;p>
+<span class='line'> 25</span>  * Some smartphones (iPhone, some Android devices, ...) provides
+<span class='line'> 26</span>  * hardware sensors like accelerometers or compasses. Use this module
+<span class='line'> 27</span>  * to get notified about this sensor data.
+<span class='line'> 28</span>  * &lt;/p>
+<span class='line'> 29</span>  *
+<span class='line'> 30</span>  * @static
+<span class='line'> 31</span>  * @class The sensor module to access smartphone sensors
+<span class='line'> 32</span>  * @since 0.2
+<span class='line'> 33</span>  * @depends ../krypsis.js
+<span class='line'> 34</span>  */</span><span class="WHIT">
+<span class='line'> 35</span> </span><span class="NAME">Krypsis.Device.Sensor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 36</span> 
+<span class='line'> 37</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 38</span>    * @private
+<span class='line'> 39</span>    */</span><span class="WHIT">
+<span class='line'> 40</span> </span><span class="WHIT">  </span><span class="NAME">context</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'sensor'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 41</span> 
+<span class='line'> 42</span> 
+<span class='line'> 43</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 44</span>    * &lt;p>
+<span class='line'> 45</span>    * Get notified when the device get moved physically.
+<span class='line'> 46</span>    * &lt;/p>
+<span class='line'> 47</span>    *
+<span class='line'> 48</span>    * &lt;div>
+<span class='line'> 49</span>    * &lt;em>Parameters&lt;/em>
+<span class='line'> 50</span>    * &lt;ul>
+<span class='line'> 51</span>    * &lt;li>&lt;strong>{Integer} frequency&lt;/strong> How often should the sensor be read?
+<span class='line'> 52</span>    * The value is required and expected in ms.&lt;/li>
+<span class='line'> 53</span>    * &lt;/ul>
+<span class='line'> 54</span>    * &lt;/div>
+<span class='line'> 55</span>    *
+<span class='line'> 56</span>    * &lt;div>
+<span class='line'> 57</span>    * &lt;em>Callbacks&lt;/em>
+<span class='line'> 58</span>    * &lt;ul>
+<span class='line'> 59</span>    *  &lt;li>&lt;strong>onSuccess&lt;/strong> Contains the sensor information.&lt;/li>
+<span class='line'> 60</span>    *  &lt;li>&lt;strong>onFailure&lt;/strong> If the device does not support this sensor.&lt;/li>
+<span class='line'> 61</span>    * &lt;/li>
+<span class='line'> 62</span>    * &lt;/div>
+<span class='line'> 63</span>    *
+<span class='line'> 64</span>    * &lt;p>
+<span class='line'> 65</span>    * The onSuccess Callback provides the following properties:
+<span class='line'> 66</span>    * &lt;ul>
+<span class='line'> 67</span>    * &lt;li>&lt;strong>{Float} x&lt;/strong> The x value of the sensor&lt;/li>
+<span class='line'> 68</span>    * &lt;li>&lt;strong>{Float} y&lt;/strong> The y value of the sensor&lt;/li>
+<span class='line'> 69</span>    * &lt;li>&lt;strong>{Float} z&lt;/strong> The z value of the sensor&lt;/li>
+<span class='line'> 70</span>    * &lt;/li>
+<span class='line'> 71</span>    * &lt;/p>
+<span class='line'> 72</span>    *
+<span class='line'> 73</span>    * @example
+<span class='line'> 74</span>    * &lt;pre>
+<span class='line'> 75</span>    *  Krypsis.Device.Sensor.startObserveAccelerometer({
+<span class='line'> 76</span>    *    parameters: { frequency: 100 } // 10 times per second
+<span class='line'> 77</span>    *
+<span class='line'> 78</span>    *    onSuccess: function(args) {
+<span class='line'> 79</span>    *      // Do something with args.x, args.y and args.z
+<span class='line'> 80</span>    *    },
+<span class='line'> 81</span>    *    onFailure: function(args) {
+<span class='line'> 82</span>    *      if (args && args.code == Krypsis.Device.Error.CAPABILITY_NOT_SUPPORTED) {
+<span class='line'> 83</span>    *        alert("Accelerometer is not supported by your phone!");
+<span class='line'> 84</span>    *      }
+<span class='line'> 85</span>    *    }
+<span class='line'> 86</span>    *  });
+<span class='line'> 87</span>    *
+<span class='line'> 88</span>    *  // or
+<span class='line'> 89</span>    *
+<span class='line'> 90</span>    *  var task = Krypsis.Device.Sensor.startObserveAccelerometer({...}, false);
+<span class='line'> 91</span>    *  task.execute();
+<span class='line'> 92</span>    * &lt;/pre>
+<span class='line'> 93</span>    *
+<span class='line'> 94</span>    * @param {Object} options The parameters and callbacks
+<span class='line'> 95</span>    * @param {Boolean} execute Shold the task be executed after creation. Default is true
+<span class='line'> 96</span>    *
+<span class='line'> 97</span>    * @since 0.2
+<span class='line'> 98</span>    * @public
+<span class='line'> 99</span>    */</span><span class="WHIT">
+<span class='line'>100</span> </span><span class="WHIT">  </span><span class="NAME">startObserveAccelerometer</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>101</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Krypsis.Device.createTask</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"startobserveaccelerometer"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>102</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>103</span> 
+<span class='line'>104</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'>105</span>    * &lt;p>
+<span class='line'>106</span>    * Stops the previously started accelerometer observer.
+<span class='line'>107</span>    * &lt;/p>
+<span class='line'>108</span>    *
+<span class='line'>109</span>    * &lt;p>No parameters required or supported.&lt;/p>
+<span class='line'>110</span>    * &lt;p>
+<span class='line'>111</span>    * &lt;em>Callbacks&lt;/em>
+<span class='line'>112</span>    * &lt;ul>
+<span class='line'>113</span>    * &lt;li>&lt;strong>onSuccess&lt;/strong> If the observer was running and the observer is stopped now&lt;/li>
+<span class='line'>114</span>    * &lt;li>&lt;strong>onFailure&lt;/strong> If the observer could not be stopped.&lt;/li>
+<span class='line'>115</span>    * &lt;/ul>
+<span class='line'>116</span>    * &lt;/p>
+<span class='line'>117</span>    *
+<span class='line'>118</span>    * @example
+<span class='line'>119</span>    * &lt;pre>
+<span class='line'>120</span>    *  Krypsis.Device.Sensor.stopObserveAccelerometer({});
+<span class='line'>121</span>    *
+<span class='line'>122</span>    *  // or
+<span class='line'>123</span>    * 
+<span class='line'>124</span>    *  var task = Krypsis.Device.Sensor.stopObserveAccelerometer({...}, false);
+<span class='line'>125</span>    *  task.execute();
+<span class='line'>126</span>    * &lt;/pre>
+<span class='line'>127</span>    *
+<span class='line'>128</span>    * @param {Object} options The callbacks
+<span class='line'>129</span>    * @param {Boolean} execute Shold the task be executed after creation. Default is true
+<span class='line'>130</span>    *
+<span class='line'>131</span>    * @since 0.2
+<span class='line'>132</span>    * @public
+<span class='line'>133</span>    */</span><span class="WHIT">
+<span class='line'>134</span> </span><span class="WHIT">  </span><span class="NAME">stopObserveAccelerometer</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>135</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">Krypsis.Device.createTask</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"stopobserveaccelerometer"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">execute</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>136</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>137</span> </span><span class="PUNC">}</span><span class="PUNC">;</span></pre></body></html>

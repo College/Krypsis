@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <!-- First of all we need the Krypsis lib for Connector, Error and Ajax support. -->
+    <script type="text/javascript" src="../../javascripts/krypsis/krypsis.js">&nbsp;</script>
+
+    <!-- Replace this this include with the module you need. Of cource many modules are possible. -->
+    <script type="text/javascript" src="../../javascripts/krypsis/modules/location.js">&nbsp;</script>
+
+    <!-- If you intend to test you web app first in browser, then include the mocking library... -->
+    <script type="text/javascript" src="../../javascripts/krypsis/mock/mock.js">&nbsp;</script>
+
+    <!-- To get notified about the action krypsis is doing, include the logger or provide your own adapter -->
+    <script type="text/javascript" src="../../javascripts/krypsis/mock/logger.js">&nbsp;</script>
+
+    <!-- And the module you are going to mock. -->
+    <script type="text/javascript" src="../js/location.js">&nbsp;</script>
+  </head>
+
+  <!--
+  These callbacks are very important as Krypsis needs to know when a page
+  loads and when the user leaves the page. Depends on this all previous
+  listeners will be destroyed.
+  -->
+  <body onload="Krypsis.load();" onunload="Krypsis.unload();">
+
+    <ul>
+      <li>
+        <p>
+          Get the current device location
+        </p>
+        <div>
+          <a href="javascript:Krypsis.Demo.Location.getLocation('KrypsisCurrentLocation')" >Get the current location</a>
+        </div>
+        <div id="KrypsisCurrentLocation" ></div>
+      </li>
+
+      <li>
+        <p>
+          Get notified whenever the location has changed
+        </p>
+        <div>
+          <a href="javascript:Krypsis.Demo.Location.startObserveLocation('KrypsisLocation')" >Start observe location</a>
+        </div>
+        <div id="KrypsisLocation" ></div>
+      </li>
+
+      <li>
+        <p>
+          Stop the location observation
+        </p>
+        <div>
+          <a href="javascript:Krypsis.Demo.Location.stopObserveLocation('KrypsisLocation')" >Stop observe location</a>
+        </div>
+      </li>
+    </ul>
+
+    <a href="../index.html">Back</a>
+  </body>
+</html>
