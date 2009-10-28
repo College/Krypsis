@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* KrypsisAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* KrypsisAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2400772F1083A4CD008EB5A1 /* KHttpPostMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2400772E1083A4CD008EB5A1 /* KHttpPostMessage.m */; };
+		240077321083A6A4008EB5A1 /* KHttpPostMessageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 240077311083A6A4008EB5A1 /* KHttpPostMessageContent.m */; };
+		240077531083B124008EB5A1 /* KHttpPostMessageFileContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 240077521083B124008EB5A1 /* KHttpPostMessageFileContent.m */; };
+		240077581083B77E008EB5A1 /* KHttpPostMessageFormContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 240077571083B77E008EB5A1 /* KHttpPostMessageFormContent.m */; };
+		24104BEE108CFC3200CFCC87 /* KBaseResetCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 24104BED108CFC3200CFCC87 /* KBaseResetCommand.m */; };
+		2421AF6A1021B1A4006E47A9 /* KDateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2421AF691021B1A4006E47A9 /* KDateUtils.m */; };
+		2421B1311021CEE5006E47A9 /* KPhotoPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2421B1301021CEE5006E47A9 /* KPhotoPicker.m */; };
+		2421B1341021D2B2006E47A9 /* KPhotoPickerAndUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2421B1331021D2B2006E47A9 /* KPhotoPickerAndUploader.m */; };
+		2421B19D1021DFCF006E47A9 /* KPhotoUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2421B19C1021DFCF006E47A9 /* KPhotoUploader.m */; };
+		2421B1F71021EB84006E47A9 /* KStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2421B1F61021EB84006E47A9 /* KStringUtils.m */; };
+		24E8694910204831007D8859 /* KrypsisWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8694810204831007D8859 /* KrypsisWebViewController.m */; };
+		24E8694B10204845007D8859 /* KrypsisWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E8694A10204845007D8859 /* KrypsisWebViewController.xib */; };
+		24E8699410204BB4007D8859 /* KRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8699310204BB4007D8859 /* KRequest.m */; };
+		24E869E210204E34007D8859 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E869E110204E34007D8859 /* RegexKitLite.m */; };
+		24E869ED10204E52007D8859 /* KGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E869EC10204E52007D8859 /* KGlobals.m */; };
+		24E86A4F10205353007D8859 /* KErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86A4E10205353007D8859 /* KErrors.m */; };
+		24E86A6810205499007D8859 /* KResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86A6710205499007D8859 /* KResponse.m */; };
+		24E86A8010205512007D8859 /* KBaseGetMetaDataCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86A7A10205512007D8859 /* KBaseGetMetaDataCommand.m */; };
+		24E86A8110205512007D8859 /* KOrientationListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86A7D10205512007D8859 /* KOrientationListener.m */; };
+		24E86A8210205512007D8859 /* KScreenStartOrientationListenerCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86A7F10205512007D8859 /* KScreenStartOrientationListenerCommand.m */; };
+		24E86AA2102056BD007D8859 /* KErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86A9F102056BD007D8859 /* KErrorResponse.m */; };
+		24E86AA3102056BD007D8859 /* KSuccessResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86AA1102056BD007D8859 /* KSuccessResponse.m */; };
+		24E86ACC1020593F007D8859 /* KIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86ACB1020593F007D8859 /* KIdentity.m */; };
+		24E86B5B10205F73007D8859 /* KScreenStopOrientationListenerCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86B5A10205F73007D8859 /* KScreenStopOrientationListenerCommand.m */; };
+		24E86B831020612F007D8859 /* KScreenGetResolutionCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86B821020612F007D8859 /* KScreenGetResolutionCommand.m */; };
+		24E86BAB10207539007D8859 /* KLocationGetLocationCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86BAA10207539007D8859 /* KLocationGetLocationCommand.m */; };
+		24E86BAE10207558007D8859 /* KLocationListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86BAD10207558007D8859 /* KLocationListener.m */; };
+		24E86CAE10208CCC007D8859 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E86CAD10208CCC007D8859 /* CoreLocation.framework */; };
+		24E86CD010208F10007D8859 /* KOneTimeLocationListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86CCF10208F10007D8859 /* KOneTimeLocationListener.m */; };
+		24E86D1A102091CA007D8859 /* KLocationStartObserverLocationCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86D19102091CA007D8859 /* KLocationStartObserverLocationCommand.m */; };
+		24E86D3A1020939F007D8859 /* KLocationStopObserveLocationCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86D391020939F007D8859 /* KLocationStopObserveLocationCommand.m */; };
+		24E86D5A10209957007D8859 /* KPhotoTakeAndUploadCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E86D5910209957007D8859 /* KPhotoTakeAndUploadCommand.m */; };
+		24F781DF1021AD4800A9D14A /* KImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F781DE1021AD4800A9D14A /* KImageUtils.m */; };
+		24F781E31021AD8500A9D14A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F781E21021AD8500A9D14A /* CoreGraphics.framework */; };
+		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* KrypsisAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KrypsisAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* KrypsisAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KrypsisAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* Krypsis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Krypsis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2400772D1083A4CD008EB5A1 /* KHttpPostMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHttpPostMessage.h; sourceTree = "<group>"; };
+		2400772E1083A4CD008EB5A1 /* KHttpPostMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHttpPostMessage.m; sourceTree = "<group>"; };
+		240077301083A6A4008EB5A1 /* KHttpPostMessageContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHttpPostMessageContent.h; sourceTree = "<group>"; };
+		240077311083A6A4008EB5A1 /* KHttpPostMessageContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHttpPostMessageContent.m; sourceTree = "<group>"; };
+		240077511083B124008EB5A1 /* KHttpPostMessageFileContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHttpPostMessageFileContent.h; sourceTree = "<group>"; };
+		240077521083B124008EB5A1 /* KHttpPostMessageFileContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHttpPostMessageFileContent.m; sourceTree = "<group>"; };
+		240077561083B77E008EB5A1 /* KHttpPostMessageFormContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHttpPostMessageFormContent.h; sourceTree = "<group>"; };
+		240077571083B77E008EB5A1 /* KHttpPostMessageFormContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHttpPostMessageFormContent.m; sourceTree = "<group>"; };
+		24104BEC108CFC3200CFCC87 /* KBaseResetCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBaseResetCommand.h; sourceTree = "<group>"; };
+		24104BED108CFC3200CFCC87 /* KBaseResetCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBaseResetCommand.m; sourceTree = "<group>"; };
+		2421AF681021B1A4006E47A9 /* KDateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDateUtils.h; sourceTree = "<group>"; };
+		2421AF691021B1A4006E47A9 /* KDateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDateUtils.m; sourceTree = "<group>"; };
+		2421AF911021BD74006E47A9 /* KPhotoPickerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPhotoPickerProtocol.h; sourceTree = "<group>"; };
+		2421B12F1021CEE5006E47A9 /* KPhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPhotoPicker.h; sourceTree = "<group>"; };
+		2421B1301021CEE5006E47A9 /* KPhotoPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPhotoPicker.m; sourceTree = "<group>"; };
+		2421B1321021D2B2006E47A9 /* KPhotoPickerAndUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPhotoPickerAndUploader.h; sourceTree = "<group>"; };
+		2421B1331021D2B2006E47A9 /* KPhotoPickerAndUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPhotoPickerAndUploader.m; sourceTree = "<group>"; };
+		2421B19B1021DFCF006E47A9 /* KPhotoUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPhotoUploader.h; sourceTree = "<group>"; };
+		2421B19C1021DFCF006E47A9 /* KPhotoUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPhotoUploader.m; sourceTree = "<group>"; };
+		2421B1F51021EB84006E47A9 /* KStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KStringUtils.h; sourceTree = "<group>"; };
+		2421B1F61021EB84006E47A9 /* KStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KStringUtils.m; sourceTree = "<group>"; };
+		24E8694710204831007D8859 /* KrypsisWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KrypsisWebViewController.h; sourceTree = "<group>"; };
+		24E8694810204831007D8859 /* KrypsisWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KrypsisWebViewController.m; sourceTree = "<group>"; };
+		24E8694A10204845007D8859 /* KrypsisWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KrypsisWebViewController.xib; sourceTree = "<group>"; };
+		24E8698F10204B4F007D8859 /* KRequestDispatchProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRequestDispatchProtocol.h; sourceTree = "<group>"; };
+		24E8699210204BB4007D8859 /* KRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRequest.h; sourceTree = "<group>"; };
+		24E8699310204BB4007D8859 /* KRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRequest.m; sourceTree = "<group>"; };
+		24E869E010204E34007D8859 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		24E869E110204E34007D8859 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		24E869EB10204E52007D8859 /* KGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGlobals.h; sourceTree = "<group>"; };
+		24E869EC10204E52007D8859 /* KGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGlobals.m; sourceTree = "<group>"; };
+		24E86A4D10205353007D8859 /* KErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KErrors.h; sourceTree = "<group>"; };
+		24E86A4E10205353007D8859 /* KErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KErrors.m; sourceTree = "<group>"; };
+		24E86A6610205499007D8859 /* KResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KResponse.h; sourceTree = "<group>"; };
+		24E86A6710205499007D8859 /* KResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KResponse.m; sourceTree = "<group>"; };
+		24E86A7910205512007D8859 /* KBaseGetMetaDataCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBaseGetMetaDataCommand.h; sourceTree = "<group>"; };
+		24E86A7A10205512007D8859 /* KBaseGetMetaDataCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBaseGetMetaDataCommand.m; sourceTree = "<group>"; };
+		24E86A7B10205512007D8859 /* KCommandProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCommandProtocol.h; sourceTree = "<group>"; };
+		24E86A7C10205512007D8859 /* KOrientationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOrientationListener.h; sourceTree = "<group>"; };
+		24E86A7D10205512007D8859 /* KOrientationListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOrientationListener.m; sourceTree = "<group>"; };
+		24E86A7E10205512007D8859 /* KScreenStartOrientationListenerCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KScreenStartOrientationListenerCommand.h; sourceTree = "<group>"; };
+		24E86A7F10205512007D8859 /* KScreenStartOrientationListenerCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KScreenStartOrientationListenerCommand.m; sourceTree = "<group>"; };
+		24E86A9E102056BD007D8859 /* KErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KErrorResponse.h; sourceTree = "<group>"; };
+		24E86A9F102056BD007D8859 /* KErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KErrorResponse.m; sourceTree = "<group>"; };
+		24E86AA0102056BD007D8859 /* KSuccessResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSuccessResponse.h; sourceTree = "<group>"; };
+		24E86AA1102056BD007D8859 /* KSuccessResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSuccessResponse.m; sourceTree = "<group>"; };
+		24E86ACA1020593F007D8859 /* KIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIdentity.h; sourceTree = "<group>"; };
+		24E86ACB1020593F007D8859 /* KIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIdentity.m; sourceTree = "<group>"; };
+		24E86B5910205F73007D8859 /* KScreenStopOrientationListenerCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KScreenStopOrientationListenerCommand.h; sourceTree = "<group>"; };
+		24E86B5A10205F73007D8859 /* KScreenStopOrientationListenerCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KScreenStopOrientationListenerCommand.m; sourceTree = "<group>"; };
+		24E86B811020612F007D8859 /* KScreenGetResolutionCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KScreenGetResolutionCommand.h; sourceTree = "<group>"; };
+		24E86B821020612F007D8859 /* KScreenGetResolutionCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KScreenGetResolutionCommand.m; sourceTree = "<group>"; };
+		24E86BA910207539007D8859 /* KLocationGetLocationCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLocationGetLocationCommand.h; sourceTree = "<group>"; };
+		24E86BAA10207539007D8859 /* KLocationGetLocationCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLocationGetLocationCommand.m; sourceTree = "<group>"; };
+		24E86BAC10207558007D8859 /* KLocationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLocationListener.h; sourceTree = "<group>"; };
+		24E86BAD10207558007D8859 /* KLocationListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLocationListener.m; sourceTree = "<group>"; };
+		24E86CAD10208CCC007D8859 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		24E86CCE10208F10007D8859 /* KOneTimeLocationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOneTimeLocationListener.h; sourceTree = "<group>"; };
+		24E86CCF10208F10007D8859 /* KOneTimeLocationListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KOneTimeLocationListener.m; sourceTree = "<group>"; };
+		24E86D18102091CA007D8859 /* KLocationStartObserverLocationCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLocationStartObserverLocationCommand.h; sourceTree = "<group>"; };
+		24E86D19102091CA007D8859 /* KLocationStartObserverLocationCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLocationStartObserverLocationCommand.m; sourceTree = "<group>"; };
+		24E86D381020939F007D8859 /* KLocationStopObserveLocationCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLocationStopObserveLocationCommand.h; sourceTree = "<group>"; };
+		24E86D391020939F007D8859 /* KLocationStopObserveLocationCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLocationStopObserveLocationCommand.m; sourceTree = "<group>"; };
+		24E86D5810209957007D8859 /* KPhotoTakeAndUploadCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPhotoTakeAndUploadCommand.h; sourceTree = "<group>"; };
+		24E86D5910209957007D8859 /* KPhotoTakeAndUploadCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPhotoTakeAndUploadCommand.m; sourceTree = "<group>"; };
+		24F781DD1021AD4800A9D14A /* KImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KImageUtils.h; sourceTree = "<group>"; };
+		24F781DE1021AD4800A9D14A /* KImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KImageUtils.m; sourceTree = "<group>"; };
+		24F781E21021AD8500A9D14A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* Krypsis_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Krypsis_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Krypsis-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Krypsis-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				24E86CAE10208CCC007D8859 /* CoreLocation.framework in Frameworks */,
+				24F781E31021AD8500A9D14A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				24F781DC1021AD3A00A9D14A /* utils */,
+				24E86AC91020592C007D8859 /* extern */,
+				24E86AC81020591F007D8859 /* global */,
+				24E86A9D102056AE007D8859 /* http */,
+				24E86A8310205516007D8859 /* commands */,
+				1D3623240D0F684500981E51 /* KrypsisAppDelegate.h */,
+				1D3623250D0F684500981E51 /* KrypsisAppDelegate.m */,
+				24E8694710204831007D8859 /* KrypsisWebViewController.h */,
+				24E8694810204831007D8859 /* KrypsisWebViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* Krypsis.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2400772C1083A4B6008EB5A1 /* http */ = {
+			isa = PBXGroup;
+			children = (
+				2400772D1083A4CD008EB5A1 /* KHttpPostMessage.h */,
+				2400772E1083A4CD008EB5A1 /* KHttpPostMessage.m */,
+				240077301083A6A4008EB5A1 /* KHttpPostMessageContent.h */,
+				240077311083A6A4008EB5A1 /* KHttpPostMessageContent.m */,
+				240077511083B124008EB5A1 /* KHttpPostMessageFileContent.h */,
+				240077521083B124008EB5A1 /* KHttpPostMessageFileContent.m */,
+				240077561083B77E008EB5A1 /* KHttpPostMessageFormContent.h */,
+				240077571083B77E008EB5A1 /* KHttpPostMessageFormContent.m */,
+			);
+			name = http;
+			sourceTree = "<group>";
+		};
+		2421AF891021B7B8006E47A9 /* photo */ = {
+			isa = PBXGroup;
+			children = (
+				24E86D5810209957007D8859 /* KPhotoTakeAndUploadCommand.h */,
+				24E86D5910209957007D8859 /* KPhotoTakeAndUploadCommand.m */,
+				2421AF911021BD74006E47A9 /* KPhotoPickerProtocol.h */,
+				2421B12F1021CEE5006E47A9 /* KPhotoPicker.h */,
+				2421B1301021CEE5006E47A9 /* KPhotoPicker.m */,
+				2421B1321021D2B2006E47A9 /* KPhotoPickerAndUploader.h */,
+				2421B1331021D2B2006E47A9 /* KPhotoPickerAndUploader.m */,
+				2421B19B1021DFCF006E47A9 /* KPhotoUploader.h */,
+				2421B19C1021DFCF006E47A9 /* KPhotoUploader.m */,
+			);
+			name = photo;
+			sourceTree = "<group>";
+		};
+		2421AF8A1021B7C9006E47A9 /* location */ = {
+			isa = PBXGroup;
+			children = (
+				24E86BA910207539007D8859 /* KLocationGetLocationCommand.h */,
+				24E86BAA10207539007D8859 /* KLocationGetLocationCommand.m */,
+				24E86BAC10207558007D8859 /* KLocationListener.h */,
+				24E86BAD10207558007D8859 /* KLocationListener.m */,
+				24E86CCE10208F10007D8859 /* KOneTimeLocationListener.h */,
+				24E86CCF10208F10007D8859 /* KOneTimeLocationListener.m */,
+				24E86D18102091CA007D8859 /* KLocationStartObserverLocationCommand.h */,
+				24E86D19102091CA007D8859 /* KLocationStartObserverLocationCommand.m */,
+				24E86D381020939F007D8859 /* KLocationStopObserveLocationCommand.h */,
+				24E86D391020939F007D8859 /* KLocationStopObserveLocationCommand.m */,
+			);
+			name = location;
+			sourceTree = "<group>";
+		};
+		2421AF8B1021B7D7006E47A9 /* screen */ = {
+			isa = PBXGroup;
+			children = (
+				24E86A7C10205512007D8859 /* KOrientationListener.h */,
+				24E86A7D10205512007D8859 /* KOrientationListener.m */,
+				24E86A7E10205512007D8859 /* KScreenStartOrientationListenerCommand.h */,
+				24E86A7F10205512007D8859 /* KScreenStartOrientationListenerCommand.m */,
+				24E86B5910205F73007D8859 /* KScreenStopOrientationListenerCommand.h */,
+				24E86B5A10205F73007D8859 /* KScreenStopOrientationListenerCommand.m */,
+				24E86B811020612F007D8859 /* KScreenGetResolutionCommand.h */,
+				24E86B821020612F007D8859 /* KScreenGetResolutionCommand.m */,
+			);
+			name = screen;
+			sourceTree = "<group>";
+		};
+		2421AF8C1021B7E5006E47A9 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				24104BEC108CFC3200CFCC87 /* KBaseResetCommand.h */,
+				24104BED108CFC3200CFCC87 /* KBaseResetCommand.m */,
+				24E86A7910205512007D8859 /* KBaseGetMetaDataCommand.h */,
+				24E86A7A10205512007D8859 /* KBaseGetMetaDataCommand.m */,
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
+		24E86A8310205516007D8859 /* commands */ = {
+			isa = PBXGroup;
+			children = (
+				2400772C1083A4B6008EB5A1 /* http */,
+				2421AF8C1021B7E5006E47A9 /* base */,
+				2421AF8B1021B7D7006E47A9 /* screen */,
+				2421AF8A1021B7C9006E47A9 /* location */,
+				2421AF891021B7B8006E47A9 /* photo */,
+				24E86A7B10205512007D8859 /* KCommandProtocol.h */,
+			);
+			name = commands;
+			sourceTree = "<group>";
+		};
+		24E86A9D102056AE007D8859 /* http */ = {
+			isa = PBXGroup;
+			children = (
+				24E86A6610205499007D8859 /* KResponse.h */,
+				24E86A6710205499007D8859 /* KResponse.m */,
+				24E8699210204BB4007D8859 /* KRequest.h */,
+				24E8699310204BB4007D8859 /* KRequest.m */,
+				24E8698F10204B4F007D8859 /* KRequestDispatchProtocol.h */,
+				24E86A9E102056BD007D8859 /* KErrorResponse.h */,
+				24E86A9F102056BD007D8859 /* KErrorResponse.m */,
+				24E86AA0102056BD007D8859 /* KSuccessResponse.h */,
+				24E86AA1102056BD007D8859 /* KSuccessResponse.m */,
+			);
+			name = http;
+			sourceTree = "<group>";
+		};
+		24E86AC81020591F007D8859 /* global */ = {
+			isa = PBXGroup;
+			children = (
+				24E86ACA1020593F007D8859 /* KIdentity.h */,
+				24E86ACB1020593F007D8859 /* KIdentity.m */,
+				24E86A4D10205353007D8859 /* KErrors.h */,
+				24E86A4E10205353007D8859 /* KErrors.m */,
+				24E869EB10204E52007D8859 /* KGlobals.h */,
+				24E869EC10204E52007D8859 /* KGlobals.m */,
+			);
+			name = global;
+			sourceTree = "<group>";
+		};
+		24E86AC91020592C007D8859 /* extern */ = {
+			isa = PBXGroup;
+			children = (
+				24E869E010204E34007D8859 /* RegexKitLite.h */,
+				24E869E110204E34007D8859 /* RegexKitLite.m */,
+			);
+			name = extern;
+			sourceTree = "<group>";
+		};
+		24F781DC1021AD3A00A9D14A /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				24F781DD1021AD4800A9D14A /* KImageUtils.h */,
+				24F781DE1021AD4800A9D14A /* KImageUtils.m */,
+				2421AF681021B1A4006E47A9 /* KDateUtils.h */,
+				2421AF691021B1A4006E47A9 /* KDateUtils.m */,
+				2421B1F51021EB84006E47A9 /* KStringUtils.h */,
+				2421B1F61021EB84006E47A9 /* KStringUtils.m */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* Krypsis_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* Krypsis-Info.plist */,
+				24E8694A10204845007D8859 /* KrypsisWebViewController.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24F781E21021AD8500A9D14A /* CoreGraphics.framework */,
+				24E86CAD10208CCC007D8859 /* CoreLocation.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* Krypsis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Krypsis" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Krypsis;
+			productName = Krypsis;
+			productReference = 1D6058910D05DD3D006BFB54 /* Krypsis.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Krypsis" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* Krypsis */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				24E8694B10204845007D8859 /* KrypsisWebViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* KrypsisAppDelegate.m in Sources */,
+				24E8694910204831007D8859 /* KrypsisWebViewController.m in Sources */,
+				24E8699410204BB4007D8859 /* KRequest.m in Sources */,
+				24E869E210204E34007D8859 /* RegexKitLite.m in Sources */,
+				24E869ED10204E52007D8859 /* KGlobals.m in Sources */,
+				24E86A4F10205353007D8859 /* KErrors.m in Sources */,
+				24E86A6810205499007D8859 /* KResponse.m in Sources */,
+				24E86A8010205512007D8859 /* KBaseGetMetaDataCommand.m in Sources */,
+				24E86A8110205512007D8859 /* KOrientationListener.m in Sources */,
+				24E86A8210205512007D8859 /* KScreenStartOrientationListenerCommand.m in Sources */,
+				24E86AA2102056BD007D8859 /* KErrorResponse.m in Sources */,
+				24E86AA3102056BD007D8859 /* KSuccessResponse.m in Sources */,
+				24E86ACC1020593F007D8859 /* KIdentity.m in Sources */,
+				24E86B5B10205F73007D8859 /* KScreenStopOrientationListenerCommand.m in Sources */,
+				24E86B831020612F007D8859 /* KScreenGetResolutionCommand.m in Sources */,
+				24E86BAB10207539007D8859 /* KLocationGetLocationCommand.m in Sources */,
+				24E86BAE10207558007D8859 /* KLocationListener.m in Sources */,
+				24E86CD010208F10007D8859 /* KOneTimeLocationListener.m in Sources */,
+				24E86D1A102091CA007D8859 /* KLocationStartObserverLocationCommand.m in Sources */,
+				24E86D3A1020939F007D8859 /* KLocationStopObserveLocationCommand.m in Sources */,
+				24E86D5A10209957007D8859 /* KPhotoTakeAndUploadCommand.m in Sources */,
+				24F781DF1021AD4800A9D14A /* KImageUtils.m in Sources */,
+				2421AF6A1021B1A4006E47A9 /* KDateUtils.m in Sources */,
+				2421B1311021CEE5006E47A9 /* KPhotoPicker.m in Sources */,
+				2421B1341021D2B2006E47A9 /* KPhotoPickerAndUploader.m in Sources */,
+				2421B19D1021DFCF006E47A9 /* KPhotoUploader.m in Sources */,
+				2421B1F71021EB84006E47A9 /* KStringUtils.m in Sources */,
+				2400772F1083A4CD008EB5A1 /* KHttpPostMessage.m in Sources */,
+				240077321083A6A4008EB5A1 /* KHttpPostMessageContent.m in Sources */,
+				240077531083B124008EB5A1 /* KHttpPostMessageFileContent.m in Sources */,
+				240077581083B77E008EB5A1 /* KHttpPostMessageFormContent.m in Sources */,
+				24104BEE108CFC3200CFCC87 /* KBaseResetCommand.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Krypsis_Prefix.pch;
+				INFOPLIST_FILE = "Krypsis-Info.plist";
+				PRODUCT_NAME = Krypsis;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Krypsis_Prefix.pch;
+				INFOPLIST_FILE = "Krypsis-Info.plist";
+				PRODUCT_NAME = Krypsis;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-licucore";
+				PREBINDING = NO;
+				SDKROOT = iphonesimulator3.0;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-licucore";
+				PREBINDING = NO;
+				SDKROOT = iphonesimulator3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Krypsis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Krypsis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

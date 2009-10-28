@@ -1,0 +1,69 @@
+/*
+ Krypsis - Write web applications based on proved technologies
+ like HTML, JavaScript, CSS... and access functionality of your
+ smartphone in a platform independent way.
+ 
+ Copyright (C) 2008 - 2009 krypsis.org (have.a.go@krypsis.org) 
+ 
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version 2
+ of the License, or (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ */
+
+#import "KPhotoPicker.h"
+
+@implementation KPhotoPicker
+@synthesize protocol;
+
+- (id) initWithPickerProtocol:(id) _protocol {
+    if (self = [super init]) {
+        self.protocol = _protocol;
+    }
+    return self;
+}
+
+- (void) pickWithParentController:(UIViewController *) parent {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    [imagePickerController setDelegate:self];
+    [imagePickerController setAllowsImageEditing:NO];
+    
+    /* Pick image from library in simulator and from camera in device. */
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
+    else {
+        [imagePickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [parent presentModalViewController:imagePickerController animated:YES];
+    
+    [imagePickerController release];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [self popPickerController:picker];
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    [protocol didFinishPickingImage:image];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *) picker {
+    [self popPickerController:picker];
+    [protocol didCancelPickingImage];
+}
+
+- (void) popPickerController:(UIImagePickerController *)picker {
+    [picker resignFirstResponder];
+    [[picker parentViewController] dismissModalViewControllerAnimated:YES];
+}
+
+@end
