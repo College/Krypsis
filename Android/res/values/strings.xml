@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Krypsis</string>
+  <string name="app_enter_url">http://georize.de:9494/doc/index.html</string>
+  <!--
+  <string name="app_enter_url">http://georize.de:9494/demo/index.html</string>
+  -->
+  <string name="action_cancel">Cancel</string>
+  <string name="action_reload">Reload</string>
+  <string name="action_take_picture">Take picture</string>
+
+  <string name="metadata_os">android</string>
+  <string name="metadata_os_version">0.1</string>
+  <string name="metadata_browser">webkit</string>
+  <string name="metadata_browser_version">1.0</string>
+
+  <string name="label_camera_module">Take picture</string>
+</resources>
