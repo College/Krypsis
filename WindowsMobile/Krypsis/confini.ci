@@ -1,0 +1,11 @@
+﻿[URL]
+NEW=http://192.168.1.52:3000/mobile/locations/new
+FAVORITES=http://192.168.1.52:3000/mobile/locations/favorites
+TOKEN=http://192.168.1.52:3000/mobile/token/
+SEARCH=http://192.168.1.52:3000/mobile/locations/search
+PHOTO=http://de.money.sweeper.application.photo
+[DATA]
+COOKIE=
+TOKENKEY=
+TOKENVALUE=
+HTML=

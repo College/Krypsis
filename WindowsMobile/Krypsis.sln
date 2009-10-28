@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoRizeMobileWin", "Krypsis\Krypsis.csproj", "{CA547C81-7AE2-4BDF-AB74-E27C1E8DF001}"
+	ProjectSection(ProjectDependencies) = postProject
+		{56D191BF-31C7-48A5-AF9B-8C8F3395A8CA} = {56D191BF-31C7-48A5-AF9B-8C8F3395A8CA}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPSLocater", "..\GPSLocater\GPSLocater.csproj", "{56D191BF-31C7-48A5-AF9B-8C8F3395A8CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA547C81-7AE2-4BDF-AB74-E27C1E8DF001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA547C81-7AE2-4BDF-AB74-E27C1E8DF001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA547C81-7AE2-4BDF-AB74-E27C1E8DF001}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CA547C81-7AE2-4BDF-AB74-E27C1E8DF001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA547C81-7AE2-4BDF-AB74-E27C1E8DF001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA547C81-7AE2-4BDF-AB74-E27C1E8DF001}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{56D191BF-31C7-48A5-AF9B-8C8F3395A8CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D191BF-31C7-48A5-AF9B-8C8F3395A8CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D191BF-31C7-48A5-AF9B-8C8F3395A8CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D191BF-31C7-48A5-AF9B-8C8F3395A8CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
