@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Groovy" name="Groovy">
+      <configuration />
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/dist" />
+    </content>
+    <orderEntry type="library" name="groovy-1.6.0" level="application" />
+    <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/jsr172.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jsr226.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/midp20.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/wma11.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jsr177.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jsr135.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/midp21.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/eswt.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jsr184.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jsr179.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jsr82.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jsr234.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jsr139.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/iapinfo.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/wma20.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/nokiaUI.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jsr75.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module" module-name="Java" />
+  </component>
+</module>
+
